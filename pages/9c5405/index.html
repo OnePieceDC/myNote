@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>存储管理之传统磁盘管理 | DC&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/fonts/iconfont.css">
+    <meta name="description" content="人类终将毁灭,世界属于三体!">
+    <meta name="keywords" content="DC的个人博客.">
+    
+    <link rel="preload" href="/assets/css/0.styles.66b92039.css" as="style"><link rel="preload" href="/assets/js/app.ac54adc6.js" as="script"><link rel="preload" href="/assets/js/4.7ddc74e3.js" as="script"><link rel="preload" href="/assets/js/1.a0c4ff1b.js" as="script"><link rel="preload" href="/assets/js/3.8b03321d.js" as="script"><link rel="preload" href="/assets/js/237.75a692de.js" as="script"><link rel="preload" href="/assets/js/104.cae2d944.js" as="script"><link rel="preload" href="/assets/js/184.46eabf07.js" as="script"><link rel="prefetch" href="/assets/js/10.a91ae011.js"><link rel="prefetch" href="/assets/js/100.2e8ea472.js"><link rel="prefetch" href="/assets/js/101.46f57a02.js"><link rel="prefetch" href="/assets/js/102.f51bcd80.js"><link rel="prefetch" href="/assets/js/103.3f003e0e.js"><link rel="prefetch" href="/assets/js/105.6c6ebc28.js"><link rel="prefetch" href="/assets/js/106.47dc8889.js"><link rel="prefetch" href="/assets/js/107.6b5602b4.js"><link rel="prefetch" href="/assets/js/108.46f0c21d.js"><link rel="prefetch" href="/assets/js/109.0f1168a5.js"><link rel="prefetch" href="/assets/js/11.e6a94228.js"><link rel="prefetch" href="/assets/js/110.6a961498.js"><link rel="prefetch" href="/assets/js/111.c6f27c88.js"><link rel="prefetch" href="/assets/js/112.9ee3d3bb.js"><link rel="prefetch" href="/assets/js/113.82b72aa0.js"><link rel="prefetch" href="/assets/js/114.7487460e.js"><link rel="prefetch" href="/assets/js/115.cd079d0a.js"><link rel="prefetch" href="/assets/js/116.b6b829eb.js"><link rel="prefetch" href="/assets/js/117.89d9336c.js"><link rel="prefetch" href="/assets/js/118.467c4437.js"><link rel="prefetch" href="/assets/js/119.c4b2ac40.js"><link rel="prefetch" href="/assets/js/12.9d3501e4.js"><link rel="prefetch" href="/assets/js/120.5ff31c09.js"><link rel="prefetch" href="/assets/js/121.2e59c3a5.js"><link rel="prefetch" href="/assets/js/122.a66096cf.js"><link rel="prefetch" href="/assets/js/123.4885ba5f.js"><link rel="prefetch" href="/assets/js/124.cacc66be.js"><link rel="prefetch" href="/assets/js/125.dc5b30fe.js"><link rel="prefetch" href="/assets/js/126.4e21eb5e.js"><link rel="prefetch" href="/assets/js/127.cb36a9bf.js"><link rel="prefetch" href="/assets/js/128.ce38358e.js"><link rel="prefetch" href="/assets/js/129.e5f414eb.js"><link rel="prefetch" href="/assets/js/13.ca017a68.js"><link rel="prefetch" href="/assets/js/130.17b597f0.js"><link rel="prefetch" href="/assets/js/131.e1ded2dc.js"><link rel="prefetch" href="/assets/js/132.aae1c627.js"><link rel="prefetch" href="/assets/js/133.73cecdb3.js"><link rel="prefetch" href="/assets/js/134.80cf38a0.js"><link rel="prefetch" href="/assets/js/135.735ed588.js"><link rel="prefetch" href="/assets/js/136.91f8db08.js"><link rel="prefetch" href="/assets/js/137.d6fb8bda.js"><link rel="prefetch" href="/assets/js/138.75cafe73.js"><link rel="prefetch" href="/assets/js/139.b01bf0db.js"><link rel="prefetch" href="/assets/js/14.ee2605b5.js"><link rel="prefetch" href="/assets/js/140.ff0a7911.js"><link rel="prefetch" href="/assets/js/141.c69e7f54.js"><link rel="prefetch" href="/assets/js/142.997b03ac.js"><link rel="prefetch" href="/assets/js/143.e40faea8.js"><link rel="prefetch" href="/assets/js/144.369f23e5.js"><link rel="prefetch" href="/assets/js/145.1268424d.js"><link rel="prefetch" href="/assets/js/146.94c65c4a.js"><link rel="prefetch" href="/assets/js/147.05fe6a36.js"><link rel="prefetch" href="/assets/js/148.327cc29d.js"><link rel="prefetch" href="/assets/js/149.90068676.js"><link rel="prefetch" href="/assets/js/15.42e0a0e4.js"><link rel="prefetch" href="/assets/js/150.b4b780bb.js"><link rel="prefetch" href="/assets/js/151.b4611012.js"><link rel="prefetch" href="/assets/js/152.4d2c8246.js"><link rel="prefetch" href="/assets/js/153.f32dfa58.js"><link rel="prefetch" href="/assets/js/154.b79a78fb.js"><link rel="prefetch" href="/assets/js/155.6ad2865c.js"><link rel="prefetch" href="/assets/js/156.fd49a1af.js"><link rel="prefetch" href="/assets/js/157.55113800.js"><link rel="prefetch" href="/assets/js/158.af321bc9.js"><link rel="prefetch" href="/assets/js/159.37d9c659.js"><link rel="prefetch" href="/assets/js/16.007f45b3.js"><link rel="prefetch" href="/assets/js/160.7a3b5a9a.js"><link rel="prefetch" href="/assets/js/161.fc1fbea8.js"><link rel="prefetch" href="/assets/js/162.2f8d3d1c.js"><link rel="prefetch" href="/assets/js/163.aa889940.js"><link rel="prefetch" href="/assets/js/164.5d8b2cb7.js"><link rel="prefetch" href="/assets/js/165.44d4a9b5.js"><link rel="prefetch" href="/assets/js/166.c1b4c4d4.js"><link rel="prefetch" href="/assets/js/167.0c39929e.js"><link rel="prefetch" href="/assets/js/168.fede035a.js"><link rel="prefetch" href="/assets/js/169.ff940d50.js"><link rel="prefetch" href="/assets/js/17.7395c644.js"><link rel="prefetch" href="/assets/js/170.b6fcb3bf.js"><link rel="prefetch" href="/assets/js/171.2b927a7c.js"><link rel="prefetch" href="/assets/js/172.b07a90a1.js"><link rel="prefetch" href="/assets/js/173.367352bf.js"><link rel="prefetch" href="/assets/js/174.4ea4e20f.js"><link rel="prefetch" href="/assets/js/175.d9679b61.js"><link rel="prefetch" href="/assets/js/176.f7804143.js"><link rel="prefetch" href="/assets/js/177.c5d1e680.js"><link rel="prefetch" href="/assets/js/178.808293fa.js"><link rel="prefetch" href="/assets/js/179.2acf6b3c.js"><link rel="prefetch" href="/assets/js/18.46f9153d.js"><link rel="prefetch" href="/assets/js/180.ddf3ecf7.js"><link rel="prefetch" href="/assets/js/181.4da0855c.js"><link rel="prefetch" href="/assets/js/182.591d135a.js"><link rel="prefetch" href="/assets/js/183.9d08f9fe.js"><link rel="prefetch" href="/assets/js/185.ee1c8428.js"><link rel="prefetch" href="/assets/js/186.c7b19133.js"><link rel="prefetch" href="/assets/js/187.52945990.js"><link rel="prefetch" href="/assets/js/188.a1d395c5.js"><link rel="prefetch" href="/assets/js/189.5b66165e.js"><link rel="prefetch" href="/assets/js/19.2db19edb.js"><link rel="prefetch" href="/assets/js/190.265a75de.js"><link rel="prefetch" href="/assets/js/191.b4c65143.js"><link rel="prefetch" href="/assets/js/192.cc4d4115.js"><link rel="prefetch" href="/assets/js/193.fa02ecc5.js"><link rel="prefetch" href="/assets/js/194.b0c9ad53.js"><link rel="prefetch" href="/assets/js/195.eda8cd34.js"><link rel="prefetch" href="/assets/js/196.cbae4dc6.js"><link rel="prefetch" href="/assets/js/197.693b1b85.js"><link rel="prefetch" href="/assets/js/198.8213665b.js"><link rel="prefetch" href="/assets/js/199.ddf0036d.js"><link rel="prefetch" href="/assets/js/2.4c15b693.js"><link rel="prefetch" href="/assets/js/20.6742e8ae.js"><link rel="prefetch" href="/assets/js/200.340df508.js"><link rel="prefetch" href="/assets/js/201.7431c15b.js"><link rel="prefetch" href="/assets/js/202.217b2b38.js"><link rel="prefetch" href="/assets/js/203.06c6a93d.js"><link rel="prefetch" href="/assets/js/204.a068a898.js"><link rel="prefetch" href="/assets/js/205.9361d3f5.js"><link rel="prefetch" href="/assets/js/206.886beca0.js"><link rel="prefetch" href="/assets/js/207.2278bda8.js"><link rel="prefetch" href="/assets/js/208.db0acc0d.js"><link rel="prefetch" href="/assets/js/209.0e05b204.js"><link rel="prefetch" href="/assets/js/21.fd552a4e.js"><link rel="prefetch" href="/assets/js/210.4c730041.js"><link rel="prefetch" href="/assets/js/211.417dbee1.js"><link rel="prefetch" href="/assets/js/212.eef4f4a3.js"><link rel="prefetch" href="/assets/js/213.ab742b0b.js"><link rel="prefetch" href="/assets/js/214.a57228de.js"><link rel="prefetch" href="/assets/js/215.37f52459.js"><link rel="prefetch" href="/assets/js/216.2f110f92.js"><link rel="prefetch" href="/assets/js/217.09654311.js"><link rel="prefetch" href="/assets/js/218.a7568950.js"><link rel="prefetch" href="/assets/js/219.628ee193.js"><link rel="prefetch" href="/assets/js/22.465a76d2.js"><link rel="prefetch" href="/assets/js/220.c5df9186.js"><link rel="prefetch" href="/assets/js/221.101ddb09.js"><link rel="prefetch" href="/assets/js/222.db210e3c.js"><link rel="prefetch" href="/assets/js/223.429cbf14.js"><link rel="prefetch" href="/assets/js/224.aa002868.js"><link rel="prefetch" href="/assets/js/225.79a40017.js"><link rel="prefetch" href="/assets/js/226.3e08228b.js"><link rel="prefetch" href="/assets/js/227.a09dd4b4.js"><link rel="prefetch" href="/assets/js/228.f930c492.js"><link rel="prefetch" href="/assets/js/229.f639a9e4.js"><link rel="prefetch" href="/assets/js/23.df6831af.js"><link rel="prefetch" href="/assets/js/230.e8ac7aad.js"><link rel="prefetch" href="/assets/js/231.99501214.js"><link rel="prefetch" href="/assets/js/232.e2932792.js"><link rel="prefetch" href="/assets/js/233.43dfa689.js"><link rel="prefetch" href="/assets/js/234.7951f9c4.js"><link rel="prefetch" href="/assets/js/235.1dc96b6c.js"><link rel="prefetch" href="/assets/js/236.40b8d4e4.js"><link rel="prefetch" href="/assets/js/238.cc9d9ac1.js"><link rel="prefetch" href="/assets/js/239.4616a566.js"><link rel="prefetch" href="/assets/js/24.b68dc734.js"><link rel="prefetch" href="/assets/js/240.dd825147.js"><link rel="prefetch" href="/assets/js/241.85e3219b.js"><link rel="prefetch" href="/assets/js/242.bf4123c4.js"><link rel="prefetch" href="/assets/js/243.ce68f4f0.js"><link rel="prefetch" href="/assets/js/244.e2598d4d.js"><link rel="prefetch" href="/assets/js/245.2c696827.js"><link rel="prefetch" href="/assets/js/246.2c44a497.js"><link rel="prefetch" href="/assets/js/247.02405fce.js"><link rel="prefetch" href="/assets/js/248.6727bdf6.js"><link rel="prefetch" href="/assets/js/249.4901f575.js"><link rel="prefetch" href="/assets/js/25.d639c65c.js"><link rel="prefetch" href="/assets/js/250.c922c9ea.js"><link rel="prefetch" href="/assets/js/251.b1350ead.js"><link rel="prefetch" href="/assets/js/252.8295c5ea.js"><link rel="prefetch" href="/assets/js/253.b0a9ba20.js"><link rel="prefetch" href="/assets/js/254.d208b848.js"><link rel="prefetch" href="/assets/js/255.2cfb6ad3.js"><link rel="prefetch" href="/assets/js/256.e7687a81.js"><link rel="prefetch" href="/assets/js/257.db329d54.js"><link rel="prefetch" href="/assets/js/258.be75b1f9.js"><link rel="prefetch" href="/assets/js/259.67500f7e.js"><link rel="prefetch" href="/assets/js/26.9db429a9.js"><link rel="prefetch" href="/assets/js/260.73609cfa.js"><link rel="prefetch" href="/assets/js/261.22fc7c08.js"><link rel="prefetch" href="/assets/js/262.2c620ccd.js"><link rel="prefetch" href="/assets/js/263.e0ce1454.js"><link rel="prefetch" href="/assets/js/264.7fe82318.js"><link rel="prefetch" href="/assets/js/265.537d06c5.js"><link rel="prefetch" href="/assets/js/266.901695a7.js"><link rel="prefetch" href="/assets/js/267.8eb24590.js"><link rel="prefetch" href="/assets/js/268.a21e44dc.js"><link rel="prefetch" href="/assets/js/269.33e6ce5d.js"><link rel="prefetch" href="/assets/js/27.2296e284.js"><link rel="prefetch" href="/assets/js/270.31507ac3.js"><link rel="prefetch" href="/assets/js/271.b9406b42.js"><link rel="prefetch" href="/assets/js/272.0acaba6f.js"><link rel="prefetch" href="/assets/js/273.c2e359b0.js"><link rel="prefetch" href="/assets/js/274.a80428a6.js"><link rel="prefetch" href="/assets/js/28.7e4f4dc1.js"><link rel="prefetch" href="/assets/js/29.ba75f79a.js"><link rel="prefetch" href="/assets/js/30.16cd3622.js"><link rel="prefetch" href="/assets/js/31.54ed5bc1.js"><link rel="prefetch" href="/assets/js/32.b2fbba6a.js"><link rel="prefetch" href="/assets/js/33.f7ff0107.js"><link rel="prefetch" href="/assets/js/34.4b2cea7d.js"><link rel="prefetch" href="/assets/js/35.1159e74c.js"><link rel="prefetch" href="/assets/js/36.0b6296f3.js"><link rel="prefetch" href="/assets/js/37.fc67879e.js"><link rel="prefetch" href="/assets/js/38.637afaf8.js"><link rel="prefetch" href="/assets/js/39.748a78f3.js"><link rel="prefetch" href="/assets/js/40.4fede9bb.js"><link rel="prefetch" href="/assets/js/41.c7f0b087.js"><link rel="prefetch" href="/assets/js/42.5b1a487d.js"><link rel="prefetch" href="/assets/js/43.59275b93.js"><link rel="prefetch" href="/assets/js/44.b18a4c94.js"><link rel="prefetch" href="/assets/js/45.bc8f7cb3.js"><link rel="prefetch" href="/assets/js/46.6a4ec89f.js"><link rel="prefetch" href="/assets/js/47.e1e129e6.js"><link rel="prefetch" href="/assets/js/48.c284ce23.js"><link rel="prefetch" href="/assets/js/49.17e5dd65.js"><link rel="prefetch" href="/assets/js/5.e3d12916.js"><link rel="prefetch" href="/assets/js/50.34c3ac45.js"><link rel="prefetch" href="/assets/js/51.035f7031.js"><link rel="prefetch" href="/assets/js/52.e9ef227a.js"><link rel="prefetch" href="/assets/js/53.ecbb032d.js"><link rel="prefetch" href="/assets/js/54.e9af4cfe.js"><link rel="prefetch" href="/assets/js/55.7e71402b.js"><link rel="prefetch" href="/assets/js/56.511071fe.js"><link rel="prefetch" href="/assets/js/57.13b7fe79.js"><link rel="prefetch" href="/assets/js/58.e51f8b0e.js"><link rel="prefetch" href="/assets/js/59.a1b8bdb7.js"><link rel="prefetch" href="/assets/js/6.5fc3f358.js"><link rel="prefetch" href="/assets/js/60.fd7e1c08.js"><link rel="prefetch" href="/assets/js/61.0daf2361.js"><link rel="prefetch" href="/assets/js/62.04632944.js"><link rel="prefetch" href="/assets/js/63.f0dd5615.js"><link rel="prefetch" href="/assets/js/64.89a4b562.js"><link rel="prefetch" href="/assets/js/65.6764ff0c.js"><link rel="prefetch" href="/assets/js/66.049bdee1.js"><link rel="prefetch" href="/assets/js/67.b0d4ec16.js"><link rel="prefetch" href="/assets/js/68.46d97067.js"><link rel="prefetch" href="/assets/js/69.f540f0da.js"><link rel="prefetch" href="/assets/js/7.ce17dd73.js"><link rel="prefetch" href="/assets/js/70.17d8f857.js"><link rel="prefetch" href="/assets/js/71.b2a166a0.js"><link rel="prefetch" href="/assets/js/72.1c17a875.js"><link rel="prefetch" href="/assets/js/73.dac8984b.js"><link rel="prefetch" href="/assets/js/74.5bbc33ac.js"><link rel="prefetch" href="/assets/js/75.483644c7.js"><link rel="prefetch" href="/assets/js/76.de5461ab.js"><link rel="prefetch" href="/assets/js/77.7fa90702.js"><link rel="prefetch" href="/assets/js/78.f41853b8.js"><link rel="prefetch" href="/assets/js/79.598b50e6.js"><link rel="prefetch" href="/assets/js/80.61d2d23a.js"><link rel="prefetch" href="/assets/js/81.d310c6e4.js"><link rel="prefetch" href="/assets/js/82.22aa814c.js"><link rel="prefetch" href="/assets/js/83.f493eba4.js"><link rel="prefetch" href="/assets/js/84.3a32a1eb.js"><link rel="prefetch" href="/assets/js/85.2f47134e.js"><link rel="prefetch" href="/assets/js/86.74e65a77.js"><link rel="prefetch" href="/assets/js/87.e87bff96.js"><link rel="prefetch" href="/assets/js/88.aabc97af.js"><link rel="prefetch" href="/assets/js/89.b0945d87.js"><link rel="prefetch" href="/assets/js/90.630f62d3.js"><link rel="prefetch" href="/assets/js/91.ed816647.js"><link rel="prefetch" href="/assets/js/92.19065457.js"><link rel="prefetch" href="/assets/js/93.a0fe1919.js"><link rel="prefetch" href="/assets/js/94.51e48580.js"><link rel="prefetch" href="/assets/js/95.e591bede.js"><link rel="prefetch" href="/assets/js/96.1723f1d6.js"><link rel="prefetch" href="/assets/js/97.02bbb7d4.js"><link rel="prefetch" href="/assets/js/98.a3625ba6.js"><link rel="prefetch" href="/assets/js/99.1accbf48.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5959bfd2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.66b92039.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/nav-logo.png" alt="DC's blog" class="logo"> <span class="site-name can-hide">DC's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="IT必备" class="dropdown-title"><a href="/IT/" class="link-title">IT必备</a> <span class="title" style="display:none;">IT必备</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/IT/basis/" class="nav-link">计算机基础</a></li><li class="dropdown-item"><!----> <a href="/IT/linux/" class="nav-link">linux基础</a></li><li class="dropdown-item"><!----> <a href="/IT/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/IT/git/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/IT/structure/" class="nav-link">数据结构与算法</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><a href="/python/" class="link-title">Python</a> <span class="title" style="display:none;">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python/basis/" class="nav-link">opp</a></li><li class="dropdown-item"><!----> <a href="/python/oop/" class="nav-link">oop</a></li><li class="dropdown-item"><!----> <a href="/python/Network_concurrency/" class="nav-link">网络并发编程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front_end/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/front_end/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/front_end/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front_end/jquery/" class="nav-link">jquery</a></li><li class="dropdown-item"><!----> <a href="/front_end/ui/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/" class="nav-link">vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/python_web/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python_web/django/" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf/" class="nav-link">drf</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf_re/" class="nav-link">drf_re</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实战" class="dropdown-title"><a href="/project/" class="link-title">实战</a> <span class="title" style="display:none;">实战</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前后端不分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/bbs/" class="nav-link">BBS</a></li><li class="dropdown-subitem"><a href="/project/order/" class="nav-link">订单系统</a></li><li class="dropdown-subitem"><a href="/project/crm/" class="nav-link">CRM</a></li></ul></li><li class="dropdown-item"><h4>前后端分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/supply/" class="nav-link">供应链系统</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/other/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/essays/" class="nav-link">杂文</a></li><li class="dropdown-item"><h4>关于我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/about/" class="nav-link">me</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><!----> <span class="title" style="display:;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/OnePieceDC/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/avatar.gif"> <div class="blogger-info"><h3>DC</h3> <span>愿我一生欢喜,不为世俗所及.</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="IT必备" class="dropdown-title"><a href="/IT/" class="link-title">IT必备</a> <span class="title" style="display:none;">IT必备</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/IT/basis/" class="nav-link">计算机基础</a></li><li class="dropdown-item"><!----> <a href="/IT/linux/" class="nav-link">linux基础</a></li><li class="dropdown-item"><!----> <a href="/IT/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/IT/git/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/IT/structure/" class="nav-link">数据结构与算法</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><a href="/python/" class="link-title">Python</a> <span class="title" style="display:none;">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python/basis/" class="nav-link">opp</a></li><li class="dropdown-item"><!----> <a href="/python/oop/" class="nav-link">oop</a></li><li class="dropdown-item"><!----> <a href="/python/Network_concurrency/" class="nav-link">网络并发编程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front_end/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/front_end/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/front_end/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front_end/jquery/" class="nav-link">jquery</a></li><li class="dropdown-item"><!----> <a href="/front_end/ui/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/" class="nav-link">vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/python_web/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python_web/django/" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf/" class="nav-link">drf</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf_re/" class="nav-link">drf_re</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实战" class="dropdown-title"><a href="/project/" class="link-title">实战</a> <span class="title" style="display:none;">实战</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前后端不分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/bbs/" class="nav-link">BBS</a></li><li class="dropdown-subitem"><a href="/project/order/" class="nav-link">订单系统</a></li><li class="dropdown-subitem"><a href="/project/crm/" class="nav-link">CRM</a></li></ul></li><li class="dropdown-item"><h4>前后端分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/supply/" class="nav-link">供应链系统</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/other/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/essays/" class="nav-link">杂文</a></li><li class="dropdown-item"><h4>关于我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/about/" class="nav-link">me</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><!----> <span class="title" style="display:;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/OnePieceDC/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>linux基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/da5198/" class="sidebar-link">准备工作</a></li><li><a href="/pages/8939f4/" class="sidebar-link">初识shell与基础常用命令</a></li><li><a href="/pages/b323da/" class="sidebar-link">文件管理之基础命令</a></li><li><a href="/pages/bd85fe/" class="sidebar-link">文件管理之四大模式</a></li><li><a href="/pages/4e332e/" class="sidebar-link">文件管理之命令补充</a></li><li><a href="/pages/e843c3/" class="sidebar-link">文件管理之文件系统</a></li><li><a href="/pages/15d340/" class="sidebar-link">权限管理之用户与组</a></li><li><a href="/pages/1683d8/" class="sidebar-link">权限管理之文件权限</a></li><li><a href="/pages/7ba656/" class="sidebar-link">权限管理之ACL</a></li><li><a href="/pages/415178/" class="sidebar-link">权限管理之su与sudo</a></li><li><a href="/pages/80cc13/" class="sidebar-link">软件包管理之rpm</a></li><li><a href="/pages/0c6963/" class="sidebar-link">软件包管理之yum</a></li><li><a href="/pages/4944d1/" class="sidebar-link">查看进程</a></li><li><a href="/pages/cece9f/" class="sidebar-link">管理进程</a></li><li><a href="/pages/9c5405/" aria-current="page" class="active sidebar-link">存储管理之传统磁盘管理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/0d43c6/" class="sidebar-link">存储管理之LVM</a></li><li><a href="/pages/0fa05e/" class="sidebar-link">网络管理</a></li><li><a href="/pages/fb22ed/" class="sidebar-link">shell基础</a></li><li><a href="/pages/d423cf/" class="sidebar-link">crond计划任务</a></li><li><a href="/pages/f264b1/" class="sidebar-link">系统优化</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构与算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-91157402><div class="articleInfo" data-v-91157402><ul class="breadcrumbs" data-v-91157402><li data-v-91157402><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-91157402></a></li> <li data-v-91157402><a href="/categories/?category=IT_Need" title="分类" data-v-91157402>IT_Need</a></li><li data-v-91157402><a href="/categories/?category=linux%E5%9F%BA%E7%A1%80" title="分类" data-v-91157402>linux基础</a></li></ul> <div class="info" data-v-91157402><div title="作者" class="author iconfont icon-touxiang" data-v-91157402><a href="https://github.com/OnePieceDC" target="_blank" title="作者" class="beLink" data-v-91157402>DC</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-91157402><a href="javascript:;" data-v-91157402>2022-10-08</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">存储管理之传统磁盘管理<!----></h1> <!----> <div class="theme-vdoing-content content__default"><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot; -- 对磁盘进行分区并查看磁盘有哪些分区 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token function">fdisk</span> /dev/sdb              <span class="token comment"># -- 以MBR格式对某个磁盘进行分区</span>
+gdisk /dev/sdd              <span class="token comment"># -- 以GPT格式对某个磁盘进行分区</span>
+partprobe                   <span class="token comment"># -- 及时更新磁盘分区后的分区表信息!!</span>
+lsblk                       <span class="token comment"># -- 查看所有磁盘分区情况</span>
+<span class="token function">ls</span> /dev/sdb 连续按两下Tab键<span class="token operator">!</span><span class="token operator">!</span> <span class="token comment"># -- 查看某一磁盘下有哪些分区 </span>
+<span class="token comment"># -- 查看某个磁盘分区情况</span>
+     lsblk /dev/sda		
+     <span class="token function">fdisk</span> /dev/sdb 进去后 输入p
+     <span class="token function">fdisk</span> <span class="token parameter variable">-l</span> /dev/sdb
+     gdisk <span class="token parameter variable">-l</span> /dev/sdd
+
+<span class="token string">&quot;&quot;</span>&quot; -- 格式化分区并挂载<span class="token punctuation">(</span>临时、永久<span class="token punctuation">)</span> -- <span class="token string">&quot;&quot;</span>&quot;
+mkfs.xfs /dev/sdb1          <span class="token comment"># -- 格式化某个分区</span>
+<span class="token function">mount</span> /dev/sdb1 /a          <span class="token comment"># -- 将某个分区进行临时挂载</span>
+blkid                       <span class="token comment"># -- 查看每个分区的UUID</span>
+<span class="token function">vim</span> /etc/fstab              <span class="token comment"># -- 设置开机自动挂载</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'$a /dev/sdb3 /opt xfs defaults 0 0'</span> /etc/fstab 	
+<span class="token function">mount</span> <span class="token parameter variable">-a</span>                    <span class="token comment"># -- 不reboot重启机器,使配置文件/etc/fstab生效</span>
+                            <span class="token comment"># 前提: 分区对应的挂载参数设置为defaults或者多个挂载参数中包含auto</span>
+<span class="token function">df</span>                          <span class="token comment"># -- 查看已经挂载磁盘的使用情况</span>
+<span class="token function">mount</span> <span class="token operator">|</span> <span class="token function">grep</span> sdb            <span class="token comment"># -- 最准确的显示是否挂载成功</span>
+
+
+<span class="token string">&quot;&quot;</span>&quot; -- 制作swap分区并激活 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token function">mkswap</span> /dev/sdd3
+<span class="token function">swapon</span> /dev/sdd3            <span class="token comment"># -- 激活/临时挂载swap分区</span>
+<span class="token function">swapon</span> <span class="token parameter variable">-s</span>                   <span class="token comment"># -- 查看有哪些挂载的swap分区</span>
+swapoff <span class="token parameter variable">-a</span>                  <span class="token comment"># -- 关闭所有swap分区</span>
+swapoff /dev/sdd3           <span class="token comment"># -- 关闭某个swap分区</span>
+<span class="token function">free</span> <span class="token parameter variable">-m</span>                     <span class="token comment"># -- 查看虚拟内存情况</span>
+<span class="token function">vim</span> /etc/fstab              <span class="token comment"># -- 开机自动挂载新增的swap分区 	临时 + 开机挂载 = 永久</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'$a /dev/sdd3 swap swap defaults 0 0'</span> /etc/fstab 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="磁盘分区"><a href="#磁盘分区" class="header-anchor">#</a> 磁盘分区</h3> <blockquote><p><strong>回顾详见:</strong> 0_计算机基础/1_计算机硬件组成.md 中 <strong>存储器详解</strong> 这一部分的内容...</p></blockquote> <p><code>lsblk /dev/sda</code></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">## -- 在vm虚拟机里可以直接添加多个硬盘 </span>
+<span class="token comment">## -- 这里我添加了 sdb sdc sdd三块硬盘(都是SCSI接口 容量分别为20G、20G、2500G/2.5TB) </span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /dev | grep sd</span>
+sda     <span class="token comment">## -- 第一块物理磁盘</span>
+sda1    <span class="token comment">## -- 第一块物理磁盘第一分区</span>
+sda2    <span class="token comment">## -- 第一块物理磁盘第二分区</span>
+sdb     <span class="token comment">## -- 第二块物理磁盘</span>
+sdc     <span class="token comment">## -- 第三块物理磁盘</span>
+sdd     <span class="token comment">## -- 第四块物理磁盘</span>
+<span class="token comment">## Ps:  vde4 第五块虚拟磁盘的第四分区</span>
+
+<span class="token comment">## -- 查看磁盘设备详情,以及分区情况</span>
+<span class="token string">&quot;&quot;</span>&quot;
+TYPE
+	disk 磁盘
+	part 分区
+	rom  只读
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sda</span>
+NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sda               <span class="token number">8</span>:0    <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+├─sda1            <span class="token number">8</span>:1    <span class="token number">0</span>   1G  <span class="token number">0</span> part /boot
+└─sda2            <span class="token number">8</span>:2    <span class="token number">0</span>  19G  <span class="token number">0</span> part 
+  ├─centos-root <span class="token number">253</span>:0    <span class="token number">0</span>  17G  <span class="token number">0</span> lvm  /
+  └─centos-swap <span class="token number">253</span>:1    <span class="token number">0</span>   2G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdb</span>
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdb    <span class="token number">8</span>:16   <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdc</span>
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdc    <span class="token number">8</span>:32   <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdd</span>
+NAME MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sdd    <span class="token number">8</span>:48   <span class="token number">0</span>  <span class="token number">2</span>.5T  <span class="token number">0</span> disk 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p><font color="blue">某个磁盘划分的分区主要分为三类: </font><br> <strong>主分区/引导分区</strong> 、 <strong>扩展分区</strong> -- <font color="gray">包含</font>-- <strong>逻辑分区</strong></p> <p>主分区/引导分区: 包含主引导记录MBR的分区,意味着可以安装系统(MBR里有OS的启动程序grub)<br> <font color="gray">Ps: 相关知识点翻阅  0_计算机基础/1_计算机硬件组成.md 中 <strong>计算机启动过程</strong> 以及 1_linux基础/0_准备工作.md  <strong>Linux启动流程</strong> 这两部分内容...</font></p> <p><font color="blue">常见的磁盘分区方案有两种:</font> MBR分区表和GUID分区表(简称GPT)<br>
+     MBR -- 最多能识别 2TB 的容量 ; 最多只能支持4个主分区 or 3个主分区+1个扩展分区(逻辑分区不限制)<br>
+     GPT  -- 支持的磁盘容量比 MBR 大得多,最多支持128个主分区</p> <p>我们拿到一块没有分区的新硬盘, 首先将硬盘划分出n个主分区(MBR方案通常是3个), 再将硬盘剩余空间给扩展分区, 然后将扩展分区划分为若干个逻辑分区,具体的细节操作后文会详细阐述..</p> <p><font color="blue">磁盘分区的工具 </font><br> <strong>fdisk</strong>  工具  --  MBR<br> <strong>gdisk</strong> 工具  --  GPT</p> <p>磁盘容量小于2TB的通常用MBR, GPT当然也可以,但存着效率的问题...</p> <hr> <h3 id="mbr进行分区"><a href="#mbr进行分区" class="header-anchor">#</a> MBR进行分区</h3> <p><code>fdisk /dev/sdb</code></p> <p>m        查看帮助<br>
+q         退出, <font color="gray">未w保存的分区信息不会写入磁盘,不会生效</font><br>
+n         新建分区(p 主分区;e 扩展分区)<br>
+d         删除分区<br>
+p         查看磁盘已划分分区的信息<br>
+w         保存</p> <p>★ <font color="blue">创建3个大小为1G的主分区,剩余容量给扩展分区,扩展分区里划分出了两个逻辑分区,一个为2G,另一个为3G.. </font></p> <p>中途还验证了,MBR的方案新建四个主分区后,不能再新建任何分区..</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># fdisk /dev/sdb</span>
+欢迎使用 <span class="token function">fdisk</span> <span class="token punctuation">(</span>util-linux <span class="token number">2.23</span>.2<span class="token punctuation">)</span>。
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+
+<span class="token string">&quot;&quot;</span>&quot; -- 新建第一个主分区分区<span class="token punctuation">(</span>1G<span class="token punctuation">)</span> -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n	<span class="token comment">## -- 新建分区</span>
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">0</span> extended, <span class="token number">4</span> <span class="token function">free</span><span class="token punctuation">)</span> <span class="token comment">## -- 主分区</span>
+   e   extended    <span class="token comment">## -- 扩展分区</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: p   <span class="token comment">## -- 选择新建主分区</span>
+分区号 <span class="token punctuation">(</span><span class="token number">1</span>-4，默认 <span class="token number">1</span><span class="token punctuation">)</span>:     <span class="token comment">## -- 回车,使用默认的</span>
+<span class="token comment">## -- 上一个分区的结束应该作为下一个分区的启始 </span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">2048</span>-41943039,默认为 <span class="token number">2048</span><span class="token punctuation">)</span>:		<span class="token comment">## -- 回车,启始位置不指定使用默认的</span>
+将使用默认值 <span class="token number">2048</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2048</span>-41943039, 默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>：+1G  <span class="token comment">## -- 1GB大小</span>
+分区 <span class="token number">1</span> 已设置为 Linux 类型,大小设为 <span class="token number">1</span> GiB
+
+<span class="token string">&quot;&quot;</span>&quot; -- 重复上述步骤,新建第二个第三个第四个大小都为1G的主分区 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: p	
+分区号 <span class="token punctuation">(</span><span class="token number">2</span>-4,默认 <span class="token number">2</span><span class="token punctuation">)</span>:
+起始 扇区 <span class="token punctuation">(</span><span class="token number">2099200</span>-41943039,默认为 <span class="token number">2099200</span><span class="token punctuation">)</span>:
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2099200</span>-41943039, 默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>：+1G
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: p	
+分区号 <span class="token punctuation">(</span><span class="token number">3,4</span>，默认 <span class="token number">3</span><span class="token punctuation">)</span>:
+起始 扇区 <span class="token punctuation">(</span><span class="token number">4196352</span>-41943039,默认为 <span class="token number">4196352</span><span class="token punctuation">)</span>:
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">4196352</span>-41943039, 默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>：+1G
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+Select <span class="token punctuation">(</span>default e<span class="token punctuation">)</span>: p <span class="token comment">## -- 建第4个分区的时候,fdisk工具已经开始提示,&quot;default e,该建扩展分区啦&quot;</span>
+                      <span class="token comment">## -- 当然,可以不听,执意创建主分区</span>
+已选择分区 <span class="token number">4</span>	 <span class="token comment">## -- 可以发现,因为只剩一个分区了,就不让你选择分区号啦</span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">6293504</span>-41943039, 默认为 <span class="token number">6293504</span><span class="token punctuation">)</span>:
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">6293504</span>-41943039, 默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>：+1G
+
+<span class="token string">&quot;&quot;</span>&quot; -- 我们已经创建了4个主分区<span class="token punctuation">(</span>大小都为1G<span class="token punctuation">)</span>,哪怕还剩16G,空间够用也不能继续新建分区啦 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+<span class="token comment">## -- 如果要创建四个以上的分区,必须替换一个主分区优先使用扩展分区!!</span>
+If you want to create <span class="token function">more</span> than four partitions, you must replace a
+primary partition with an extended partition first.
+
+<span class="token string">&quot;&quot;</span>&quot; -- 删除第4个分区 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: d
+分区号 <span class="token punctuation">(</span><span class="token number">1</span>-4，默认 <span class="token number">4</span><span class="token punctuation">)</span>: <span class="token number">4</span>
+分区 <span class="token number">4</span> 已删除
+
+<span class="token string">&quot;&quot;</span>&quot; -- 创建第4个分区为扩展分区,磁盘剩余的空间都给它 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">3</span> primary, <span class="token number">0</span> extended, <span class="token number">1</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default e<span class="token punctuation">)</span>: e
+已选择分区 <span class="token number">4</span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">6293504</span>-41943039，默认为 <span class="token number">6293504</span><span class="token punctuation">)</span>:
+将使用默认值 <span class="token number">6293504</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">6293504</span>-41943039, 默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>: <span class="token comment">## -- 空格,默认剩下的都给</span>
+将使用默认值 <span class="token number">41943039</span>
+分区 <span class="token number">4</span> 已设置为 Extended 类型, 大小设为 <span class="token number">17</span> GiB
+
+<span class="token string">&quot;&quot;</span>&quot; -- 查看磁盘已划分分区的信息 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: p
+
+磁盘 /dev/sdb：21.5 GB, <span class="token number">21474836480</span> 字节，41943040 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>: <span class="token number">512</span> 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>: <span class="token number">512</span> 字节 / <span class="token number">512</span> 字节
+磁盘标签类型: dos
+磁盘标识符: 0x651efb78
+<span class="token comment">## -- 可以观察到,每个分区都是紧挨着的 2099199-2099200 4196351-4196352 6293503-6293504</span>
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sdb2         <span class="token number">2099200</span>     <span class="token number">4196351</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sdb3         <span class="token number">4196352</span>     <span class="token number">6293503</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sdb4         <span class="token number">6293504</span>    <span class="token number">41943039</span>    <span class="token number">17824768</span>    <span class="token number">5</span>  Extended
+
+<span class="token string">&quot;&quot;</span>&quot; -- 已经划分了四个主分区,接着新建的分区是在扩展分区里划分的逻辑分区 新建两个逻辑分区<span class="token punctuation">(</span>2G和3G<span class="token punctuation">)</span> -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+All primary partitions are <span class="token keyword">in</span> use
+添加逻辑分区 <span class="token number">5</span>
+<span class="token comment">## -- 可以观察到逻辑分区默认的启始 6295552 接近于/dev/sdb4这一扩展分区的启始 6293504</span>
+<span class="token comment">## -- 没有紧贴,空出来的那部分空间记录的就是扩展分区里逻辑分区的信息</span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">6295552</span>-41943039，默认为 <span class="token number">6295552</span><span class="token punctuation">)</span>: <span class="token comment">## -- 同样的不指定启始位置</span>
+将使用默认值 <span class="token number">6295552</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">6295552</span>-41943039,默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>: +2G
+分区 <span class="token number">5</span> 已设置为 Linux 类型,大小设为 <span class="token number">2</span> GiB
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: n
+All primary partitions are <span class="token keyword">in</span> use
+添加逻辑分区 <span class="token number">6</span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">10491904</span>-41943039,默认为 <span class="token number">10491904</span><span class="token punctuation">)</span>：
+将使用默认值 <span class="token number">10491904</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">10491904</span>-41943039,默认为 <span class="token number">41943039</span><span class="token punctuation">)</span>: +3G
+分区 <span class="token number">6</span> 已设置为 Linux 类型,大小设为 <span class="token number">3</span> GiB
+
+<span class="token string">&quot;&quot;</span>&quot; -- 保存退出 -- <span class="token string">&quot;&quot;</span>&quot;
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>: w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+正在同步磁盘.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br></div></div><p>可以查看下/dev/sdb的分区结果</p> <p><code>partprobe</code> <code>lsblk /dev/sdb</code></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">## -- 执行partprobe命令刷新一下分区表 更新分区表信息</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># partprobe</span>
+
+<span class="token comment">## -- 我们主要使用 sdb1、sdb2、sdb3、sdb5、sdb6</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /dev/sdb          ## -- 连续按两下Tab键!!</span>
+sdb   sdb1  sdb2  sdb3  sdb4  sdb5  sdb6  
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdb</span>
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdb      <span class="token number">8</span>:16   <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+├─sdb1   <span class="token number">8</span>:17   <span class="token number">0</span>   1G  <span class="token number">0</span> part 
+├─sdb2   <span class="token number">8</span>:18   <span class="token number">0</span>   1G  <span class="token number">0</span> part 
+├─sdb3   <span class="token number">8</span>:19   <span class="token number">0</span>   1G  <span class="token number">0</span> part 
+├─sdb4   <span class="token number">8</span>:20   <span class="token number">0</span>   1K  <span class="token number">0</span> part 
+├─sdb5   <span class="token number">8</span>:21   <span class="token number">0</span>   2G  <span class="token number">0</span> part 
+└─sdb6   <span class="token number">8</span>:22   <span class="token number">0</span>   3G  <span class="token number">0</span> part 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><hr> <h3 id="gpt进行分区"><a href="#gpt进行分区" class="header-anchor">#</a> GPT进行分区</h3> <p>/dev/sdd 磁盘的空间大小为2.5T</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdd</span>
+NAME MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sdd    <span class="token number">8</span>:48   <span class="token number">0</span>  <span class="token number">2</span>.5T  <span class="token number">0</span> disk 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>n         新建分区(建的每个分区都是主分区)
+p         查看已建分区的信息
+d         删除
+w        保存
+q        退出</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># gdisk /dev/sdd</span>
+Command <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n   
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-128, default <span class="token number">1</span><span class="token punctuation">)</span>: 
+First sector <span class="token punctuation">(</span><span class="token number">34</span>-5242879966, default <span class="token operator">=</span> <span class="token number">2048</span><span class="token punctuation">)</span> or <span class="token punctuation">{</span>+-<span class="token punctuation">}</span>size<span class="token punctuation">{</span>KMGTP<span class="token punctuation">}</span>: 
+Last sector <span class="token punctuation">(</span><span class="token number">2048</span>-5242879966, default <span class="token operator">=</span> <span class="token number">5242879966</span><span class="token punctuation">)</span> or <span class="token punctuation">{</span>+-<span class="token punctuation">}</span>size<span class="token punctuation">{</span>KMGTP<span class="token punctuation">}</span>: +1G
+Current <span class="token builtin class-name">type</span> is <span class="token string">'Linux filesystem'</span> 	<span class="token comment">## - 当前类型是“Linux 文件系统” </span>
+Hex code or GUID <span class="token punctuation">(</span>L to show codes, Enter <span class="token operator">=</span> <span class="token number">8300</span><span class="token punctuation">)</span>:  <span class="token comment">## - 通过L查看8300指的就是“Linux 文件系统” </span>
+																		<span class="token comment">## - Linux文件系统包含xfs,也就是该分区可以选择xfs格式化</span>
+Changed <span class="token builtin class-name">type</span> of partition to <span class="token string">'Linux filesystem'</span>
+
+Partition number <span class="token punctuation">(</span><span class="token number">2</span>-128, default <span class="token number">2</span><span class="token punctuation">)</span>: 
+Last sector <span class="token punctuation">(</span><span class="token number">2099200</span>-5242879966, default <span class="token operator">=</span> <span class="token number">5242879966</span><span class="token punctuation">)</span> or <span class="token punctuation">{</span>+-<span class="token punctuation">}</span>size<span class="token punctuation">{</span>KMGTP<span class="token punctuation">}</span>: +1G
+
+Command <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: p
+Disk /dev/sdd: <span class="token number">5242880000</span> sectors, <span class="token number">2.4</span> TiB
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+
+Number  Start <span class="token punctuation">(</span>sector<span class="token punctuation">)</span>    End <span class="token punctuation">(</span>sector<span class="token punctuation">)</span>  Size       Code  Name
+   <span class="token number">1</span>            <span class="token number">2048</span>         <span class="token number">2099199</span>   <span class="token number">1024.0</span> MiB  <span class="token number">8300</span>  Linux filesystem
+   <span class="token number">2</span>         <span class="token number">2099200</span>         <span class="token number">4196351</span>   <span class="token number">1024.0</span> MiB  <span class="token number">8300</span>  Linux filesystem
+  
+Command <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: w
+Do you want to proceed? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: y
+OK<span class="token punctuation">;</span> writing new GUID partition table <span class="token punctuation">(</span>GPT<span class="token punctuation">)</span> to /dev/sdd.
+The operation has completed successfully.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>查看sdd分区的情况</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdd</span>
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sdd      <span class="token number">8</span>:48   <span class="token number">0</span>  <span class="token number">2</span>.5T  <span class="token number">0</span> disk 
+├─sdd1   <span class="token number">8</span>:49   <span class="token number">0</span>    1G  <span class="token number">0</span> part 
+└─sdd2   <span class="token number">8</span>:50   <span class="token number">0</span>    1G  <span class="token number">0</span> part 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><hr> <h3 id="制作文件系统与挂载"><a href="#制作文件系统与挂载" class="header-anchor">#</a> 制作文件系统与挂载</h3> <blockquote><p>磁盘容量小于2T的用MBR进行分区,容量大于2T的用GPT进行分区..<br>
+往后的操作就一样啦, 分完区后选择xfs对分区进行格式化...然后进行挂载..</p></blockquote> <h6 id="格式化-制作文件系统"><a href="#格式化-制作文件系统" class="header-anchor">#</a> 格式化/制作文件系统</h6> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">## -- 注意: 格式化后,分区里面的数据都没了</span>
+mkfs.xfs /dev/sdb1   <span class="token comment"># -- 格式化sdb1分区</span>
+mkfs.xfs /dev/sdb2   <span class="token comment"># -- 格式化sdb2分区</span>
+mkfs.xfs /dev/sdb3   <span class="token comment"># -- 格式化sdb3分区</span>
+mkfs.xfs /dev/sdb5	 <span class="token comment"># -- 格式化sdb5分区</span>
+mkfs.xfs /dev/sdb6   <span class="token comment"># -- 格式化sdb6分区</span>
+mkfs.xfs /dev/sdd1	 <span class="token comment"># -- sdd1分区</span>
+<span class="token comment">## -- 试着对/dev/sdb4这一扩展分区进行格式化,提示sdb4里包含分区表(指的就是sdb5、sdb6两个逻辑分区)</span>
+<span class="token comment">## -- 可以加上-f选项,强制格式化,但通常不会这么做</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkfs.xfs /dev/sdb4</span>
+mkfs.xfs: /dev/sdb4 appears to contain a partition table <span class="token punctuation">(</span>dos<span class="token punctuation">)</span>.
+mkfs.xfs: Use the <span class="token parameter variable">-f</span> option to force overwrite.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><font color="blue">磁盘可以不分区,直接格式化制作文件系统,相当于整个盘是一个分区!!不建议这样做..</font></p> <h6 id="临时挂载"><a href="#临时挂载" class="header-anchor">#</a> 临时挂载</h6> <blockquote><p>mount -t  源  挂载点</p></blockquote> <p><code>mount -a</code> 可以不重启服务器, 让<code>/etc/fstab</code>中的永久挂载配置生效!</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">mkdir</span> /a
+<span class="token function">mkdir</span> /b
+<span class="token function">mkdir</span> /c
+<span class="token function">mkdir</span> /d
+<span class="token function">mkdir</span> /e
+<span class="token function">mount</span> /dev/sdb1 /a
+<span class="token function">mount</span> /dev/sdb2 /b
+<span class="token function">mount</span> /dev/sdb3 /c
+<span class="token function">mount</span> /dev/sdb5 /d
+<span class="token function">mount</span> /dev/sdb6 /e
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># df | grep sdb</span>
+<span class="token comment">## 文件系统                 1K-块    已用     可用 		已用% 挂载点</span>
+/dev/sdb1                <span class="token number">1038336</span>   <span class="token number">32992</span>  <span class="token number">1005344</span>    <span class="token number">4</span>% 	/a
+/dev/sdb2                <span class="token number">1038336</span>   <span class="token number">32992</span>  <span class="token number">1005344</span>    <span class="token number">4</span>% 	/b
+/dev/sdb3                <span class="token number">1038336</span>   <span class="token number">32992</span>  <span class="token number">1005344</span>    <span class="token number">4</span>% 	/c
+/dev/sdb5                <span class="token number">2086912</span>   <span class="token number">32992</span>  <span class="token number">2053920</span>    <span class="token number">2</span>% 	/d
+/dev/sdb6                <span class="token number">3135488</span>   <span class="token number">32992</span>  <span class="token number">3102496</span>    <span class="token number">2</span>% 	/e
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h6 id="卸载"><a href="#卸载" class="header-anchor">#</a> 卸载</h6> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">## -- umount /dev/sdb1 卸载文件系统或挂载点都能达到预期的效果</span>
+<span class="token function">umount</span> /a /b /c /d /e  <span class="token comment"># -- 卸载多个</span>
+<span class="token string">&quot;&quot;</span>&quot;
+若正处于某个分区下,umount卸载该分区,会提示目标忙
+解决方案一: <span class="token builtin class-name">cd</span> 到其他分区下
+解决方案二: <span class="token function">umount</span> <span class="token parameter variable">-l</span> /a <span class="token comment"># -- 加上l选项,强制卸载</span>
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h6 id="从右往左最近原则"><a href="#从右往左最近原则" class="header-anchor">#</a> 从右往左最近原则</h6> <blockquote><p>从右往左最近原则	同一个分区可以有多个挂载点</p></blockquote> <p>判断文件属于哪一个分区,需要从右到左进行分析..<br> <strong>从右往左最近原则</strong>:  文件离哪个挂载点最近, 就会存储到最近的挂载点所在的分区里..</p> <p><font color="blue">打个比方, 在挂载点是个水龙头, 水从哪里来？挂载点从所对应的某个分区中取水!!!</font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">mkdir</span> /opt/a                    <span class="token comment">## -- opt目录在根分区/里;根分区下创建的a目录也在根分区里</span>
+<span class="token function">mount</span> /dev/sdb1 /opt/a          <span class="token comment">## -- /opt/a成为了sdb1分区的挂载点</span>
+<span class="token function">mkdir</span> /opt/a/b                  <span class="token comment">## -- 在/opt/a挂载点下创建的b目录存储在sdb1分区里</span>
+<span class="token function">mount</span> /dev/sdb2 /opt/a/b        <span class="token comment">## -- /opt/a/b成为了sdb2分区的挂载点</span>
+<span class="token function">touch</span> /opt/a/b/1.txt            <span class="token comment">## -- 在/opt/a/b挂载点下创建的1.txt文件存储在sdb2分区里</span>
+<span class="token string">&quot;&quot;</span>&quot;到此为止,问这几个分区下分别存储了什么？ 可以反向验证**从右往左最近原则**！！！
+根分区				opt、a
+sdb1分区		 b
+sdb2分区		 <span class="token number">1</span>.txt 
+
+★ /opt/a/b/1.txt 反向验证分析: <span class="token number">1</span>.txt离/opt/a/b挂载点最近<span class="token punctuation">;</span> b离/opt/a挂载点最近
+
+简单粗暴,卸载了哪个分区,那个分区里的内容就不会显示<span class="token punctuation">..</span>
+但首先你要能卸载的了,比如这里直接umount /opt/a卸载sdb1分区是失败的<span class="token operator">!</span><span class="token operator">!</span>要先卸载sdb2分区<span class="token punctuation">..</span>
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+        └── <span class="token number">1</span>.txt
+
+<span class="token number">2</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># echo 111 &gt; /opt/a/b/1.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cat /opt/a/b/1.txt </span>
+<span class="token number">111</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># df | grep sdb | grep -v grep</span>
+/dev/sdb1                <span class="token number">1038336</span>   <span class="token number">32992</span>  <span class="token number">1005344</span>    <span class="token number">4</span>% /opt/a
+/dev/sdb2                <span class="token number">1038336</span>   <span class="token number">32996</span>  <span class="token number">1005340</span>    <span class="token number">4</span>% /opt/a/b
+
+<span class="token string">&quot;&quot;</span>&quot;sdb2分区隐居山林,为何1.txt文件神秘消失？
+因为1.txt文件是存储在sdb2分区里的<span class="token operator">!</span><span class="token operator">!</span>sdb2分区未挂载就读取不了里面的内容.
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># umount /opt/a/b</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+
+<span class="token number">2</span> directories, <span class="token number">0</span> files
+
+<span class="token string">&quot;&quot;</span>&quot;趁乱在/opt/a/b下创建的2.txt文件,根据从右到左最近原则,是存储在挂载点/opt/a所对应的sdb1分区里<span class="token operator">!</span><span class="token operator">!</span>
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># echo 222 &gt; /opt/a/b/2.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cat /opt/a/b/2.txt </span>
+<span class="token number">222</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+        └── <span class="token number">2</span>.txt
+
+<span class="token number">2</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+
+<span class="token string">&quot;&quot;</span>&quot;重新让/opt/a/b成为sdb2分区的挂载点,2.txt文件消失,1.txt文件重见江湖<span class="token operator">!</span>
+因为/opt/a/b挂载点会从sdb2分区里取水,sdb2分区里只有1.txt,可没有2.txt
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdb2 /opt/a/b</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+        └── <span class="token number">1</span>.txt
+
+<span class="token number">2</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+
+<span class="token string">&quot;&quot;</span>&quot;开始作妖,/test和/opt/a/b都作为sdb2分区的挂载点<span class="token operator">!</span><span class="token operator">!</span>
+所以神奇的发现,新建的test目录下也出现了1.txt文件<span class="token operator">!</span><span class="token operator">!</span>
+进一步验证了,挂载点会从所对应的分区里取水<span class="token operator">!</span><span class="token operator">!</span>
+需要注意的是:不管是改变/test还是/opt/a/b下的1.txt文件,实则上都是更改sdb2分区里存储的1.txt<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+					 /test/1.txt和/opt/a/b/1.txt会同时改变<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cd</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir /test</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdb2 /test</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree /test</span>
+/test
+└── <span class="token number">1</span>.txt
+
+<span class="token number">0</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount | grep /dev/sdb2  ## -- df可能不会显示全,但mount命令显示的肯定是全的!!!</span>
+/dev/sdb2 on /opt/a/b <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+/dev/sdb2 on /test <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+
+<span class="token string">&quot;&quot;</span>&quot;小小验证下,b目录和2.txt都是存储在/opt/a对应的sdb1分区里
+sdb1分区退隐江湖,b目录和2.txt都会消失<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+        └── <span class="token number">1</span>.txt
+
+<span class="token number">2</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token comment">## -- 特别注意这里,直接umount /opt/a是失败的!!</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># umount /opt/a</span>
+umount: /opt/a：目标忙。
+        <span class="token punctuation">(</span>有些情况下通过 lsof<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> 或 fuser<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 可以
+         找到有关使用该设备的进程的有用信息<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># umount /opt/a/b</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+    └── b
+        └── <span class="token number">2</span>.txt
+
+<span class="token number">2</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># umount /opt/a</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree /opt</span>
+/opt
+└── a
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br></div></div><h6 id="永久挂载"><a href="#永久挂载" class="header-anchor">#</a> 永久挂载</h6> <blockquote><p>上面操作的挂载都是临时挂载, <code>reboot</code>命令重启服务器后, 挂载会失效!!!<br>
+而linux中有些挂载就是永久的,如何做到的呢？</p></blockquote> <p><code>/etc/fstab</code>文件</p> <table><thead><tr><th>要挂载的设备</th> <th>挂载点(入口)</th> <th>文件系统类型</th> <th>挂载参数</th> <th>是否备份</th> <th>是否检查</th></tr></thead> <tbody><tr><td>UUID</td> <td>挂载点路径</td> <td>eg: xfs</td> <td>defaults</td> <td>0</td> <td>0</td></tr></tbody></table> <p><font color="gray">Ps: 通常是defaults 0 0, 具体的选项配置详见 <code>https://zhuanlan.zhihu.com/p/337009754</code></font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">## -- 查看linux中永久挂载的信息</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/fstab</span>
+/dev/mapper/centos-root 									/          xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>7edef40b-555b-485b-a94c-4b345143b5d5 /boot      xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/mapper/centos-swap 									swap       swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token comment">## -- 查看每个磁盘的UUID</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># blkid</span>
+/dev/sdb1: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;057edccc-4db0-4688-bb18-5e2d5e681c5e&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sdb2: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;41a7d6a4-b8b6-489a-892a-2e2c1e7d295e&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sdb3: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;db12f68f-9ea0-4b7a-a927-47d8345dedd3&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sdb5: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;29301422-0035-417c-bfd0-8d244ce59e0c&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sdb6: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;73122250-bd11-4ca2-8c84-0a2e412ef708&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sda1: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;7edef40b-555b-485b-a94c-4b345143b5d5&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sda2: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;jG51ec-dKTo-gsGv-o7wf-2wXp-Irc8-FYrzXT&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;LVM2_member&quot;</span> 
+/dev/mapper/centos-root: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;dc8ff591-4043-4c29-82bd-cdc39a0d48fb&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/mapper/centos-swap: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;9a6222cd-5632-4215-acbc-94a9b22ddd6e&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;swap&quot;</span> 
+
+<span class="token comment">## -- 编辑/etc/fstab 将sdb1和sdb2进行挂载 通常使用UUID,使用分区名称(不建议)也可以</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir /root/test1</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir /root/test2</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tail -2 /etc/fstab </span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>057edccc-4db0-4688-bb18-5e2d5e681c5e /root/test1 xfs defaults <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb2 /root/test2 xfs defaults <span class="token number">0</span> <span class="token number">0</span> 
+
+<span class="token comment">## -- reboot重启服务器后永久挂载生效</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># reboot</span>
+
+<span class="token comment">## -- 检查是否永久挂载成功</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount | grep sdb</span>
+/dev/sdb1 on /root/test1 <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+/dev/sdb2 on /root/test2 <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+
+<span class="token comment">## -- 不重启服务器,使用mount -a重新加载配置文件实现自动挂载</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># sed -i '$a /dev/sdb3 /opt xfs defaults 0 0' /etc/fstab </span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount | grep sdb</span>
+/dev/sdb1 on /root/test1 <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+/dev/sdb2 on /root/test2 <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+/dev/sdb3 on /opt <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><hr> <h3 id="制作swap交换分区"><a href="#制作swap交换分区" class="header-anchor">#</a> 制作swap交换分区</h3> <p>查看swap分区的大小,当前是2个G,准备给它加1个G..<br> <font color="blue"><strong>步骤:</strong></font> 新增分区  --  mkswap制作swap文件系统  --  激活分区 --  开机自动挂载新增的swap分区</p> <p>swapon      /dev/sdd3
+swapon      -s
+swapoff      /dev/sdd3
+swapoff      -a</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># free -m</span>
+              total        used        <span class="token function">free</span>      shared  buff/cache   available
+Mem:            <span class="token number">972</span>         <span class="token number">621</span>          <span class="token number">61</span>           <span class="token number">9</span>         <span class="token number">289</span>         <span class="token number">190</span>
+Swap:          <span class="token number">2047</span>           <span class="token number">4</span>        <span class="token number">2043</span>
+
+<span class="token string">&quot;&quot;</span>&quot; -- 从磁盘中划个1G空间的分区 sdb的逻辑分区 sdd的主分区都可以 -- <span class="token string">&quot;&quot;</span>&quot;
+gdisk /dev/sdd
+partprobe 
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdd</span>
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sdd      <span class="token number">8</span>:48   <span class="token number">0</span>  <span class="token number">2</span>.5T  <span class="token number">0</span> disk 
+├─sdd1   <span class="token number">8</span>:49   <span class="token number">0</span>    1G  <span class="token number">0</span> part 
+├─sdd2   <span class="token number">8</span>:50   <span class="token number">0</span>    1G  <span class="token number">0</span> part 
+└─sdd3   <span class="token number">8</span>:51   <span class="token number">0</span>    1G  <span class="token number">0</span> part 
+
+<span class="token string">&quot;&quot;</span>&quot; -- 制作swap分区 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkswap /dev/sdd3</span>
+正在设置交换空间版本 <span class="token number">1</span>，大小 <span class="token operator">=</span> <span class="token number">1048572</span> KiB
+无标签，UUID<span class="token operator">=</span>37fcc4d0-a581-404a-b13c-45311d09c7fc
+
+<span class="token string">&quot;&quot;</span>&quot; -- 激活/临时挂载 刚制作好的swap分区 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># swapon /dev/sdd3</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># free -m</span>
+              total        used        <span class="token function">free</span>      shared  buff/cache   available
+Mem:            <span class="token number">972</span>         <span class="token number">622</span>          <span class="token number">70</span>           <span class="token number">9</span>         <span class="token number">279</span>         <span class="token number">189</span>
+Swap:          <span class="token number">3071</span>           <span class="token number">4</span>        <span class="token number">3067</span>
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># swapon -s</span>
+文件名				类型		大小	已用	权限
+/dev/sdd3                              	partition	<span class="token number">1048572</span>	<span class="token number">4872</span>	<span class="token parameter variable">-2</span>
+/dev/dm-1                              	partition	<span class="token number">2097148</span>	<span class="token number">0</span>	<span class="token parameter variable">-3</span>
+
+<span class="token comment">## -- 开机自动挂载新增的swap分区</span>
+<span class="token comment">## -- 最好使用UUID</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># sed -i '$a /dev/sdd3 swap swap defaults 0 0' /etc/fstab </span>
+<span class="token string">&quot;&quot;</span>&quot;
+实验了下 swapoff /dev/sdd3 关闭sdd3这个swap分区,
+尽管写进了配置文件, 但使用mount -a命令不会重新挂载上去
+可以使用swapon /dev/sdd3 重新激活/临时挂载
+开机的时候会自动挂载文件里的swap配置
+不就相当于永久挂载了嘛<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><hr> <h3 id="dell-r740服务器制作raid"><a href="#dell-r740服务器制作raid" class="header-anchor">#</a> Dell R740服务器制作RAID</h3> <blockquote><p><font color="blue">RAID的基础理论详见</font>:  0_计算机基础/1_计算机硬件组成.md  中 <strong>◎ RAID技术</strong> 部分的内容...</p></blockquote> <p><font color="gray">Ps: 提一嘴,实体服务器需要做RAID,但大多数中小型公司用的阿里云(提供的是虚拟机),云环境不需要做RAID!!</font></p> <p>简单回顾下:<br>
+     在生产环境中,通常会将多个盘合到一起做一个RAID...<br>
+     RAID0: 两块盘同时提供读写的功能,坏其中一块就不能用了;<br>
+     RAID1: 称作备份盘/镜像盘, 一块读写,另一块备份, 通常系统盘做RAID1;<br>
+     RAID5: 既考虑了读写速度也考虑了冗余..<br>
+     RAID10: 土豪玩法.. 结合raid0和1的优点..</p> <p>制作RAID需要raid卡这个设备,硬盘是插在raid卡上的.. raid卡将这些硬盘做成磁盘阵列..</p> <p>具体过程参考: <code>https://www.cnblogs.com/linhaifeng/articles/13921161.html</code></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>注意几个地方:
+<span class="token number">4</span>.在BIOS界面ctrl+R进入阵列卡,不同厂商快捷键不一样,需要查一下<span class="token punctuation">;</span>
+<span class="token number">6</span>.多少个盘根据自己的需求选择<span class="token punctuation">;</span><span class="token punctuation">(</span>这里选择的是要操作哪些盘<span class="token punctuation">)</span>
+<span class="token number">7</span>.create New VD <span class="token comment"># -- VD虚拟磁盘,即多个硬盘组成一个虚拟层面的硬盘</span>
+<span class="token number">8</span>.这里是选择哪些盘做RAID  按ok完成
+<span class="token number">9</span>.可以将在步骤6中已经选中而没有做raid的硬盘 继续做其他raid
+<span class="token number">11</span>.做的RAID5的话,还可以有一块热备盘<span class="token punctuation">(</span>当RAID5中任一盘坏了,其余2块可以做奇偶校验将数据恢复到格外的热备盘中<span class="token punctuation">)</span> 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><hr> <h3 id="修复服务器文件系统"><a href="#修复服务器文件系统" class="header-anchor">#</a> 修复服务器文件系统</h3> <p>将一块硬盘分区,格式化制作文件系统,再挂载使用.. linux针对写操作会先将数据在内存的buffer缓冲区中攒一波, <strong>若在将buffer中的数据往硬盘中写的过程中</strong>,突然断电重启后会提示文件错误: “emergency mode”...</p> <h6 id="模拟文件系统损坏"><a href="#模拟文件系统损坏" class="header-anchor">#</a> 模拟文件系统损坏</h6> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot; <span class="token number">1</span>、准备一个1G的文件系统与数据 <span class="token string">&quot;&quot;</span>&quot;
+<span class="token function">fdisk</span> /dev/sdc            <span class="token comment"># -- 创建容量大小为1G的分区/dev/sdc1</span>
+mkfs.xfs /dev/sdc1        <span class="token comment"># -- 格式化/dev/sdc1分区</span>
+<span class="token function">mount</span> /dev/sdc1 /mnt/     <span class="token comment"># -- 挂载使用</span>
+<span class="token builtin class-name">echo</span> <span class="token number">111</span> <span class="token operator">&gt;</span> /mnt/1.txt     <span class="token comment"># -- 1.txt在sdc1分区中</span>
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdc</span>
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdc      <span class="token number">8</span>:32   <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+└─sdc1   <span class="token number">8</span>:33   <span class="token number">0</span>   1G  <span class="token number">0</span> part 
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount | grep sdc1</span>
+/dev/sdc1 on /mnt <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+
+<span class="token string">&quot;&quot;</span>&quot; <span class="token number">2</span>、模拟文件系统损坏 <span class="token string">&quot;&quot;</span>&quot;
+<span class="token comment">## -- 数据往硬盘中的文件写入的过程中,突然断电.. 文件就不完整啦</span>
+<span class="token comment">## -- 这里通过dd命令用冒0机往sdc硬盘中输入500M的数据,会覆盖掉硬盘中分区表的信息,整个结构就乱了..</span>
+<span class="token comment">## -- 注意哦,不是sdc1 是sdc</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># dd if=/dev/zero of=/dev/sdc bs=500M count=1</span>
+记录了1+0 的读入
+记录了1+0 的写出
+<span class="token number">524288000</span>字节<span class="token punctuation">(</span><span class="token number">524</span> MB<span class="token punctuation">)</span>已复制，1.14939 秒，456 MB/秒
+
+<span class="token string">&quot;&quot;</span>&quot; <span class="token number">3</span>、卸载后重新挂载,发现无法挂载 模拟断电后重启 <span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># umount /mnt </span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdc1 /mnt/</span>
+mount: /dev/sdc1 写保护,将以只读方式挂载
+mount: 文件系统类型错误、选项错误、/dev/sdc1 上有坏超级块、
+       缺少代码页或助手程序，或其他错误
+
+       有些情况下在 syslog 中可以找到一些有用信息- 请尝试
+       <span class="token function">dmesg</span> <span class="token operator">|</span> <span class="token function">tail</span>  这样的命令看看<span class="token punctuation">..</span>
+ 
+<span class="token comment">## -- 吐槽一下: vm虚拟机上进行模拟,直接把/dev/sdc1分区给我干没了..无法开展修复的实验了..</span>
+<span class="token comment">## -- 修复部分就听理论吧!!</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lsblk /dev/sdc</span>
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdc    <span class="token number">8</span>:32   <span class="token number">0</span>  20G  <span class="token number">0</span> disk 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><p><font color="blue">文件系统损坏后,若不能成功重启,可以用单用户模式(进去无挂载)、光盘修复模式来管理操作本地硬盘中的东西...</font></p> <h6 id="文件系统修复"><a href="#文件系统修复" class="header-anchor">#</a> 文件系统修复</h6> <p>使用<code>xfs_repair</code> 命令强制修复后, 数据丢失, 所以此时修复的意义在于可用, 所以数据要有备份意识...</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>xfs_repair /dev/sdc1 			<span class="token comment"># -- 修复时先尝试这条命令</span>
+xfs_repair <span class="token parameter variable">-L</span> /dev/sdb1 	<span class="token comment"># -- 若上一条命令失败,进行强制修复</span>
+<span class="token function">mount</span> /dev/sdc1 /mnt/			<span class="token comment"># -- 重新挂载</span>
+
+若是ext文件系统,修复需要用fsck命令
+<span class="token comment"># -y 对所有问题都回答 &quot;yes&quot;</span>
+<span class="token comment"># -f 即使文件系统标记为 clean 也强制进行检查</span>
+<span class="token function">fsck</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-y</span> /dev/sda1 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><hr> <h3 id="xfs文件系统备份与恢复"><a href="#xfs文件系统备份与恢复" class="header-anchor">#</a> xfs文件系统备份与恢复</h3> <h6 id="备份-xfsdump"><a href="#备份-xfsdump" class="header-anchor">#</a> 备份 xfsdump</h6> <p><strong>全量备份 + 增量备份</strong><br> <font color="brown">第一次备份是全量备份,增量备份是和上一次的备份进行比较, 仅备份有差异的文件...</font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># rpm -qf `which xfsdump`</span>
+xfsdump-3.1.7-1.el7.x86_64
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># rpm -qf `which xfsrestore`</span>
+xfsdump-3.1.7-1.el7.x86_64
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><font color="purple"><strong>选项</strong></font></p> <table><thead><tr><th>选项</th> <th>含义</th></tr></thead> <tbody><tr><td>-l</td> <td>是L的小写, 指定level, 有0~9共10个等级.默认值为0, 即完全备份 ; 数字1至9都是增量备份!!</td></tr> <tr><td>-L</td> <td>指定该次备份的标签名.</td></tr> <tr><td>-M</td> <td>简易描述信息, 关于什么什么的备份</td></tr> <tr><td>-f</td> <td>备份的文件存放的路径 + 空格 + 需要备份文件的路径(备份源路径)</td></tr></tbody></table> <p><font color="red"><strong>切记: 备份源路径后面千万不要加/斜杠</strong></font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot; -- 数据准备 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount | grep -E &quot;sdb3|sda1&quot;</span>
+/dev/sdb3 on /opt <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+/dev/sda1 on /boot <span class="token builtin class-name">type</span> xfs <span class="token punctuation">(</span>rw,relatime,attr2,inode64,noquota<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cp -r /etc /opt/</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># du -sh /opt</span>
+43M	/opt
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># echo 111 &gt; /opt/1.txt</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /opt</span>
+<span class="token number">1</span>.txt  etc
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /opt/1.txt </span>
+<span class="token number">111</span>
+
+<span class="token string">&quot;&quot;</span>&quot; -- <span class="token number">1</span>.先做全量备份 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token comment">## -- 将sdb3分区的内容 备份到 sda1分区下 (备份源与备份文件要分别属于两个不同的硬盘)</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># xfsdump -l 0 -L sdb3_bak -M sdb3_bak -f /boot/sdb3_bak_all /opt</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+xfsdump: Dump Status: SUCCESS
+
+
+<span class="token string">&quot;&quot;</span>&quot; -- <span class="token number">2</span>.做增量备份 做了两次增量备份-- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token comment">## -- 增删改都属于增量的部分</span>
+<span class="token builtin class-name">echo</span> <span class="token number">222</span> <span class="token operator">&gt;&gt;</span> /opt/1.txt
+<span class="token builtin class-name">echo</span> <span class="token number">333</span> <span class="token operator">&gt;</span> /opt/2.txt
+<span class="token comment"># 通常会在增量备份文件名上加上时间</span>
+xfsdump <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token parameter variable">-L</span> sdb3_bak <span class="token parameter variable">-M</span> sdb3_bak <span class="token parameter variable">-f</span> /boot/sdb3_bak_add1 /opt
+
+<span class="token builtin class-name">echo</span> <span class="token number">333333</span> <span class="token operator">&gt;</span> /opt/3.txt
+xfsdump <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token parameter variable">-L</span> sdb3_bak <span class="token parameter variable">-M</span> sdb3_bak <span class="token parameter variable">-f</span> /boot/sdb3_bak_add2 /opt
+
+<span class="token string">&quot;&quot;</span>&quot; -- 查看 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token comment"># -- 备份源的大小</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># du -sh /opt/</span>
+43M	/opt/
+<span class="token comment"># -- 备份文件(全量、增量)的大小</span>
+<span class="token comment"># 可以发现增量备份sdb3_bak_add1、sdb3_bak_add2的大小是小于全量备份的,全量备份的大小是小于备份源的</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ll -h /boot | grep sdb3_bak</span>
+-rw-r--r--  <span class="token number">1</span> root root  23K <span class="token number">8</span>月  <span class="token number">26</span> <span class="token number">17</span>:41 sdb3_bak_add1
+-rw-r--r--  <span class="token number">1</span> root root  24K <span class="token number">8</span>月  <span class="token number">26</span> <span class="token number">17</span>:41 sdb3_bak_add2
+-rw-r--r--  <span class="token number">1</span> root root  37M <span class="token number">8</span>月  <span class="token number">26</span> <span class="token number">17</span>:41 sdb3_bak_all
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><p><font color="purple"><strong>使用限制</strong></font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token number">1</span>.必须用root权限
+<span class="token number">2</span>.只能备份已挂载的文件系统
+<span class="token number">3</span>.只能备份XFS文件系统
+<span class="token number">4</span>.只能用xfsrestore进行恢复
+<span class="token number">5</span>.通过文件系统的UUID来分辨备份档,因此不能备份相同UUID的文件系统
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h6 id="恢复-xfsrestore"><a href="#恢复-xfsrestore" class="header-anchor">#</a> 恢复 xfsrestore</h6> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot; -- 删除/opt里所有的内容 --<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /opt</span>
+<span class="token number">1</span>.txt  <span class="token number">2</span>.txt  <span class="token number">3</span>.txt  etc
+
+<span class="token number">0</span> directories, <span class="token number">3</span> files
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># rm -rf /opt/*</span>
+
+<span class="token string">&quot;&quot;</span>&quot; -- 依次恢复全量、增量1、增量2 -- <span class="token string">&quot;&quot;</span>&quot;
+<span class="token comment"># 全量</span>
+xfsrestore <span class="token parameter variable">-f</span> /boot/sdb3_bak_all /opt/
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /opt</span>
+<span class="token number">1</span>.txt  etc
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /opt/1.txt</span>
+<span class="token number">111</span>
+
+<span class="token comment"># 增量1</span>
+xfsrestore <span class="token parameter variable">-f</span> /boot/sdb3_bak_add1 /opt/
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /opt</span>
+<span class="token number">1</span>.txt  <span class="token number">2</span>.txt  etc
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /opt/1.txt</span>
+<span class="token number">111</span>
+<span class="token number">222</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /opt/2.txt</span>
+<span class="token number">333</span>
+
+<span class="token comment"># 增量2</span>
+xfsrestore <span class="token parameter variable">-f</span> /boot/sdb3_bak_add2 /opt/
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /opt</span>
+<span class="token number">1</span>.txt  <span class="token number">2</span>.txt  <span class="token number">3</span>.txt  etc
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /opt/3.txt</span>
+<span class="token number">333333</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><hr></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/cece9f/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">管理进程</div></a> <a href="/pages/0d43c6/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">存储管理之LVM</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/cece9f/" class="prev">管理进程</a></span> <span class="next"><a href="/pages/0d43c6/">存储管理之LVM</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/8sk2b3/"><div>
+            搜索相关
+            <!----></div></a> <span class="date">03-22</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/2kn2p2/"><div>
+            CURD
+            <!----></div></a> <span class="date">03-20</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/1kn1m1/"><div>
+            自动生成
+            <!----></div></a> <span class="date">03-15</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/OnePieceDC" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://www.cnblogs.com/DC0307/" title="博客园" target="_blank" class="iconfont icon-bokeyuan"></a><a href="https://music.163.com/#/song?id=1854188649" title="听音乐" target="_blank" class="iconfont icon-erji"></a><a href="https://www.jianshu.com/u/5310eb537315" title="简书" target="_blank" class="iconfont icon-jianshu"></a><a href="mailto:1415806497@qq.com" title="QQ" target="_blank" class="iconfont icon-youjian"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2024
+    <span>DC | One Piece</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><!----><div id="goTop" class="hide-cat" data-v-8ccb5928></div><div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div><div></div></div></div>
+    <script src="/assets/js/app.ac54adc6.js" defer></script><script src="/assets/js/4.7ddc74e3.js" defer></script><script src="/assets/js/1.a0c4ff1b.js" defer></script><script src="/assets/js/3.8b03321d.js" defer></script><script src="/assets/js/237.75a692de.js" defer></script><script src="/assets/js/104.cae2d944.js" defer></script><script src="/assets/js/184.46eabf07.js" defer></script>
+  </body>
+</html>

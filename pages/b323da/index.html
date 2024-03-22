@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文件管理之基础命令 | DC&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/fonts/iconfont.css">
+    <meta name="description" content="人类终将毁灭,世界属于三体!">
+    <meta name="keywords" content="DC的个人博客.">
+    
+    <link rel="preload" href="/assets/css/0.styles.66b92039.css" as="style"><link rel="preload" href="/assets/js/app.ac54adc6.js" as="script"><link rel="preload" href="/assets/js/4.7ddc74e3.js" as="script"><link rel="preload" href="/assets/js/1.a0c4ff1b.js" as="script"><link rel="preload" href="/assets/js/3.8b03321d.js" as="script"><link rel="preload" href="/assets/js/163.aa889940.js" as="script"><link rel="preload" href="/assets/js/104.cae2d944.js" as="script"><link rel="preload" href="/assets/js/184.46eabf07.js" as="script"><link rel="prefetch" href="/assets/js/10.a91ae011.js"><link rel="prefetch" href="/assets/js/100.2e8ea472.js"><link rel="prefetch" href="/assets/js/101.46f57a02.js"><link rel="prefetch" href="/assets/js/102.f51bcd80.js"><link rel="prefetch" href="/assets/js/103.3f003e0e.js"><link rel="prefetch" href="/assets/js/105.6c6ebc28.js"><link rel="prefetch" href="/assets/js/106.47dc8889.js"><link rel="prefetch" href="/assets/js/107.6b5602b4.js"><link rel="prefetch" href="/assets/js/108.46f0c21d.js"><link rel="prefetch" href="/assets/js/109.0f1168a5.js"><link rel="prefetch" href="/assets/js/11.e6a94228.js"><link rel="prefetch" href="/assets/js/110.6a961498.js"><link rel="prefetch" href="/assets/js/111.c6f27c88.js"><link rel="prefetch" href="/assets/js/112.9ee3d3bb.js"><link rel="prefetch" href="/assets/js/113.82b72aa0.js"><link rel="prefetch" href="/assets/js/114.7487460e.js"><link rel="prefetch" href="/assets/js/115.cd079d0a.js"><link rel="prefetch" href="/assets/js/116.b6b829eb.js"><link rel="prefetch" href="/assets/js/117.89d9336c.js"><link rel="prefetch" href="/assets/js/118.467c4437.js"><link rel="prefetch" href="/assets/js/119.c4b2ac40.js"><link rel="prefetch" href="/assets/js/12.9d3501e4.js"><link rel="prefetch" href="/assets/js/120.5ff31c09.js"><link rel="prefetch" href="/assets/js/121.2e59c3a5.js"><link rel="prefetch" href="/assets/js/122.a66096cf.js"><link rel="prefetch" href="/assets/js/123.4885ba5f.js"><link rel="prefetch" href="/assets/js/124.cacc66be.js"><link rel="prefetch" href="/assets/js/125.dc5b30fe.js"><link rel="prefetch" href="/assets/js/126.4e21eb5e.js"><link rel="prefetch" href="/assets/js/127.cb36a9bf.js"><link rel="prefetch" href="/assets/js/128.ce38358e.js"><link rel="prefetch" href="/assets/js/129.e5f414eb.js"><link rel="prefetch" href="/assets/js/13.ca017a68.js"><link rel="prefetch" href="/assets/js/130.17b597f0.js"><link rel="prefetch" href="/assets/js/131.e1ded2dc.js"><link rel="prefetch" href="/assets/js/132.aae1c627.js"><link rel="prefetch" href="/assets/js/133.73cecdb3.js"><link rel="prefetch" href="/assets/js/134.80cf38a0.js"><link rel="prefetch" href="/assets/js/135.735ed588.js"><link rel="prefetch" href="/assets/js/136.91f8db08.js"><link rel="prefetch" href="/assets/js/137.d6fb8bda.js"><link rel="prefetch" href="/assets/js/138.75cafe73.js"><link rel="prefetch" href="/assets/js/139.b01bf0db.js"><link rel="prefetch" href="/assets/js/14.ee2605b5.js"><link rel="prefetch" href="/assets/js/140.ff0a7911.js"><link rel="prefetch" href="/assets/js/141.c69e7f54.js"><link rel="prefetch" href="/assets/js/142.997b03ac.js"><link rel="prefetch" href="/assets/js/143.e40faea8.js"><link rel="prefetch" href="/assets/js/144.369f23e5.js"><link rel="prefetch" href="/assets/js/145.1268424d.js"><link rel="prefetch" href="/assets/js/146.94c65c4a.js"><link rel="prefetch" href="/assets/js/147.05fe6a36.js"><link rel="prefetch" href="/assets/js/148.327cc29d.js"><link rel="prefetch" href="/assets/js/149.90068676.js"><link rel="prefetch" href="/assets/js/15.42e0a0e4.js"><link rel="prefetch" href="/assets/js/150.b4b780bb.js"><link rel="prefetch" href="/assets/js/151.b4611012.js"><link rel="prefetch" href="/assets/js/152.4d2c8246.js"><link rel="prefetch" href="/assets/js/153.f32dfa58.js"><link rel="prefetch" href="/assets/js/154.b79a78fb.js"><link rel="prefetch" href="/assets/js/155.6ad2865c.js"><link rel="prefetch" href="/assets/js/156.fd49a1af.js"><link rel="prefetch" href="/assets/js/157.55113800.js"><link rel="prefetch" href="/assets/js/158.af321bc9.js"><link rel="prefetch" href="/assets/js/159.37d9c659.js"><link rel="prefetch" href="/assets/js/16.007f45b3.js"><link rel="prefetch" href="/assets/js/160.7a3b5a9a.js"><link rel="prefetch" href="/assets/js/161.fc1fbea8.js"><link rel="prefetch" href="/assets/js/162.2f8d3d1c.js"><link rel="prefetch" href="/assets/js/164.5d8b2cb7.js"><link rel="prefetch" href="/assets/js/165.44d4a9b5.js"><link rel="prefetch" href="/assets/js/166.c1b4c4d4.js"><link rel="prefetch" href="/assets/js/167.0c39929e.js"><link rel="prefetch" href="/assets/js/168.fede035a.js"><link rel="prefetch" href="/assets/js/169.ff940d50.js"><link rel="prefetch" href="/assets/js/17.7395c644.js"><link rel="prefetch" href="/assets/js/170.b6fcb3bf.js"><link rel="prefetch" href="/assets/js/171.2b927a7c.js"><link rel="prefetch" href="/assets/js/172.b07a90a1.js"><link rel="prefetch" href="/assets/js/173.367352bf.js"><link rel="prefetch" href="/assets/js/174.4ea4e20f.js"><link rel="prefetch" href="/assets/js/175.d9679b61.js"><link rel="prefetch" href="/assets/js/176.f7804143.js"><link rel="prefetch" href="/assets/js/177.c5d1e680.js"><link rel="prefetch" href="/assets/js/178.808293fa.js"><link rel="prefetch" href="/assets/js/179.2acf6b3c.js"><link rel="prefetch" href="/assets/js/18.46f9153d.js"><link rel="prefetch" href="/assets/js/180.ddf3ecf7.js"><link rel="prefetch" href="/assets/js/181.4da0855c.js"><link rel="prefetch" href="/assets/js/182.591d135a.js"><link rel="prefetch" href="/assets/js/183.9d08f9fe.js"><link rel="prefetch" href="/assets/js/185.ee1c8428.js"><link rel="prefetch" href="/assets/js/186.c7b19133.js"><link rel="prefetch" href="/assets/js/187.52945990.js"><link rel="prefetch" href="/assets/js/188.a1d395c5.js"><link rel="prefetch" href="/assets/js/189.5b66165e.js"><link rel="prefetch" href="/assets/js/19.2db19edb.js"><link rel="prefetch" href="/assets/js/190.265a75de.js"><link rel="prefetch" href="/assets/js/191.b4c65143.js"><link rel="prefetch" href="/assets/js/192.cc4d4115.js"><link rel="prefetch" href="/assets/js/193.fa02ecc5.js"><link rel="prefetch" href="/assets/js/194.b0c9ad53.js"><link rel="prefetch" href="/assets/js/195.eda8cd34.js"><link rel="prefetch" href="/assets/js/196.cbae4dc6.js"><link rel="prefetch" href="/assets/js/197.693b1b85.js"><link rel="prefetch" href="/assets/js/198.8213665b.js"><link rel="prefetch" href="/assets/js/199.ddf0036d.js"><link rel="prefetch" href="/assets/js/2.4c15b693.js"><link rel="prefetch" href="/assets/js/20.6742e8ae.js"><link rel="prefetch" href="/assets/js/200.340df508.js"><link rel="prefetch" href="/assets/js/201.7431c15b.js"><link rel="prefetch" href="/assets/js/202.217b2b38.js"><link rel="prefetch" href="/assets/js/203.06c6a93d.js"><link rel="prefetch" href="/assets/js/204.a068a898.js"><link rel="prefetch" href="/assets/js/205.9361d3f5.js"><link rel="prefetch" href="/assets/js/206.886beca0.js"><link rel="prefetch" href="/assets/js/207.2278bda8.js"><link rel="prefetch" href="/assets/js/208.db0acc0d.js"><link rel="prefetch" href="/assets/js/209.0e05b204.js"><link rel="prefetch" href="/assets/js/21.fd552a4e.js"><link rel="prefetch" href="/assets/js/210.4c730041.js"><link rel="prefetch" href="/assets/js/211.417dbee1.js"><link rel="prefetch" href="/assets/js/212.eef4f4a3.js"><link rel="prefetch" href="/assets/js/213.ab742b0b.js"><link rel="prefetch" href="/assets/js/214.a57228de.js"><link rel="prefetch" href="/assets/js/215.37f52459.js"><link rel="prefetch" href="/assets/js/216.2f110f92.js"><link rel="prefetch" href="/assets/js/217.09654311.js"><link rel="prefetch" href="/assets/js/218.a7568950.js"><link rel="prefetch" href="/assets/js/219.628ee193.js"><link rel="prefetch" href="/assets/js/22.465a76d2.js"><link rel="prefetch" href="/assets/js/220.c5df9186.js"><link rel="prefetch" href="/assets/js/221.101ddb09.js"><link rel="prefetch" href="/assets/js/222.db210e3c.js"><link rel="prefetch" href="/assets/js/223.429cbf14.js"><link rel="prefetch" href="/assets/js/224.aa002868.js"><link rel="prefetch" href="/assets/js/225.79a40017.js"><link rel="prefetch" href="/assets/js/226.3e08228b.js"><link rel="prefetch" href="/assets/js/227.a09dd4b4.js"><link rel="prefetch" href="/assets/js/228.f930c492.js"><link rel="prefetch" href="/assets/js/229.f639a9e4.js"><link rel="prefetch" href="/assets/js/23.df6831af.js"><link rel="prefetch" href="/assets/js/230.e8ac7aad.js"><link rel="prefetch" href="/assets/js/231.99501214.js"><link rel="prefetch" href="/assets/js/232.e2932792.js"><link rel="prefetch" href="/assets/js/233.43dfa689.js"><link rel="prefetch" href="/assets/js/234.7951f9c4.js"><link rel="prefetch" href="/assets/js/235.1dc96b6c.js"><link rel="prefetch" href="/assets/js/236.40b8d4e4.js"><link rel="prefetch" href="/assets/js/237.75a692de.js"><link rel="prefetch" href="/assets/js/238.cc9d9ac1.js"><link rel="prefetch" href="/assets/js/239.4616a566.js"><link rel="prefetch" href="/assets/js/24.b68dc734.js"><link rel="prefetch" href="/assets/js/240.dd825147.js"><link rel="prefetch" href="/assets/js/241.85e3219b.js"><link rel="prefetch" href="/assets/js/242.bf4123c4.js"><link rel="prefetch" href="/assets/js/243.ce68f4f0.js"><link rel="prefetch" href="/assets/js/244.e2598d4d.js"><link rel="prefetch" href="/assets/js/245.2c696827.js"><link rel="prefetch" href="/assets/js/246.2c44a497.js"><link rel="prefetch" href="/assets/js/247.02405fce.js"><link rel="prefetch" href="/assets/js/248.6727bdf6.js"><link rel="prefetch" href="/assets/js/249.4901f575.js"><link rel="prefetch" href="/assets/js/25.d639c65c.js"><link rel="prefetch" href="/assets/js/250.c922c9ea.js"><link rel="prefetch" href="/assets/js/251.b1350ead.js"><link rel="prefetch" href="/assets/js/252.8295c5ea.js"><link rel="prefetch" href="/assets/js/253.b0a9ba20.js"><link rel="prefetch" href="/assets/js/254.d208b848.js"><link rel="prefetch" href="/assets/js/255.2cfb6ad3.js"><link rel="prefetch" href="/assets/js/256.e7687a81.js"><link rel="prefetch" href="/assets/js/257.db329d54.js"><link rel="prefetch" href="/assets/js/258.be75b1f9.js"><link rel="prefetch" href="/assets/js/259.67500f7e.js"><link rel="prefetch" href="/assets/js/26.9db429a9.js"><link rel="prefetch" href="/assets/js/260.73609cfa.js"><link rel="prefetch" href="/assets/js/261.22fc7c08.js"><link rel="prefetch" href="/assets/js/262.2c620ccd.js"><link rel="prefetch" href="/assets/js/263.e0ce1454.js"><link rel="prefetch" href="/assets/js/264.7fe82318.js"><link rel="prefetch" href="/assets/js/265.537d06c5.js"><link rel="prefetch" href="/assets/js/266.901695a7.js"><link rel="prefetch" href="/assets/js/267.8eb24590.js"><link rel="prefetch" href="/assets/js/268.a21e44dc.js"><link rel="prefetch" href="/assets/js/269.33e6ce5d.js"><link rel="prefetch" href="/assets/js/27.2296e284.js"><link rel="prefetch" href="/assets/js/270.31507ac3.js"><link rel="prefetch" href="/assets/js/271.b9406b42.js"><link rel="prefetch" href="/assets/js/272.0acaba6f.js"><link rel="prefetch" href="/assets/js/273.c2e359b0.js"><link rel="prefetch" href="/assets/js/274.a80428a6.js"><link rel="prefetch" href="/assets/js/28.7e4f4dc1.js"><link rel="prefetch" href="/assets/js/29.ba75f79a.js"><link rel="prefetch" href="/assets/js/30.16cd3622.js"><link rel="prefetch" href="/assets/js/31.54ed5bc1.js"><link rel="prefetch" href="/assets/js/32.b2fbba6a.js"><link rel="prefetch" href="/assets/js/33.f7ff0107.js"><link rel="prefetch" href="/assets/js/34.4b2cea7d.js"><link rel="prefetch" href="/assets/js/35.1159e74c.js"><link rel="prefetch" href="/assets/js/36.0b6296f3.js"><link rel="prefetch" href="/assets/js/37.fc67879e.js"><link rel="prefetch" href="/assets/js/38.637afaf8.js"><link rel="prefetch" href="/assets/js/39.748a78f3.js"><link rel="prefetch" href="/assets/js/40.4fede9bb.js"><link rel="prefetch" href="/assets/js/41.c7f0b087.js"><link rel="prefetch" href="/assets/js/42.5b1a487d.js"><link rel="prefetch" href="/assets/js/43.59275b93.js"><link rel="prefetch" href="/assets/js/44.b18a4c94.js"><link rel="prefetch" href="/assets/js/45.bc8f7cb3.js"><link rel="prefetch" href="/assets/js/46.6a4ec89f.js"><link rel="prefetch" href="/assets/js/47.e1e129e6.js"><link rel="prefetch" href="/assets/js/48.c284ce23.js"><link rel="prefetch" href="/assets/js/49.17e5dd65.js"><link rel="prefetch" href="/assets/js/5.e3d12916.js"><link rel="prefetch" href="/assets/js/50.34c3ac45.js"><link rel="prefetch" href="/assets/js/51.035f7031.js"><link rel="prefetch" href="/assets/js/52.e9ef227a.js"><link rel="prefetch" href="/assets/js/53.ecbb032d.js"><link rel="prefetch" href="/assets/js/54.e9af4cfe.js"><link rel="prefetch" href="/assets/js/55.7e71402b.js"><link rel="prefetch" href="/assets/js/56.511071fe.js"><link rel="prefetch" href="/assets/js/57.13b7fe79.js"><link rel="prefetch" href="/assets/js/58.e51f8b0e.js"><link rel="prefetch" href="/assets/js/59.a1b8bdb7.js"><link rel="prefetch" href="/assets/js/6.5fc3f358.js"><link rel="prefetch" href="/assets/js/60.fd7e1c08.js"><link rel="prefetch" href="/assets/js/61.0daf2361.js"><link rel="prefetch" href="/assets/js/62.04632944.js"><link rel="prefetch" href="/assets/js/63.f0dd5615.js"><link rel="prefetch" href="/assets/js/64.89a4b562.js"><link rel="prefetch" href="/assets/js/65.6764ff0c.js"><link rel="prefetch" href="/assets/js/66.049bdee1.js"><link rel="prefetch" href="/assets/js/67.b0d4ec16.js"><link rel="prefetch" href="/assets/js/68.46d97067.js"><link rel="prefetch" href="/assets/js/69.f540f0da.js"><link rel="prefetch" href="/assets/js/7.ce17dd73.js"><link rel="prefetch" href="/assets/js/70.17d8f857.js"><link rel="prefetch" href="/assets/js/71.b2a166a0.js"><link rel="prefetch" href="/assets/js/72.1c17a875.js"><link rel="prefetch" href="/assets/js/73.dac8984b.js"><link rel="prefetch" href="/assets/js/74.5bbc33ac.js"><link rel="prefetch" href="/assets/js/75.483644c7.js"><link rel="prefetch" href="/assets/js/76.de5461ab.js"><link rel="prefetch" href="/assets/js/77.7fa90702.js"><link rel="prefetch" href="/assets/js/78.f41853b8.js"><link rel="prefetch" href="/assets/js/79.598b50e6.js"><link rel="prefetch" href="/assets/js/80.61d2d23a.js"><link rel="prefetch" href="/assets/js/81.d310c6e4.js"><link rel="prefetch" href="/assets/js/82.22aa814c.js"><link rel="prefetch" href="/assets/js/83.f493eba4.js"><link rel="prefetch" href="/assets/js/84.3a32a1eb.js"><link rel="prefetch" href="/assets/js/85.2f47134e.js"><link rel="prefetch" href="/assets/js/86.74e65a77.js"><link rel="prefetch" href="/assets/js/87.e87bff96.js"><link rel="prefetch" href="/assets/js/88.aabc97af.js"><link rel="prefetch" href="/assets/js/89.b0945d87.js"><link rel="prefetch" href="/assets/js/90.630f62d3.js"><link rel="prefetch" href="/assets/js/91.ed816647.js"><link rel="prefetch" href="/assets/js/92.19065457.js"><link rel="prefetch" href="/assets/js/93.a0fe1919.js"><link rel="prefetch" href="/assets/js/94.51e48580.js"><link rel="prefetch" href="/assets/js/95.e591bede.js"><link rel="prefetch" href="/assets/js/96.1723f1d6.js"><link rel="prefetch" href="/assets/js/97.02bbb7d4.js"><link rel="prefetch" href="/assets/js/98.a3625ba6.js"><link rel="prefetch" href="/assets/js/99.1accbf48.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5959bfd2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.66b92039.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/nav-logo.png" alt="DC's blog" class="logo"> <span class="site-name can-hide">DC's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="IT必备" class="dropdown-title"><a href="/IT/" class="link-title">IT必备</a> <span class="title" style="display:none;">IT必备</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/IT/basis/" class="nav-link">计算机基础</a></li><li class="dropdown-item"><!----> <a href="/IT/linux/" class="nav-link">linux基础</a></li><li class="dropdown-item"><!----> <a href="/IT/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/IT/git/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/IT/structure/" class="nav-link">数据结构与算法</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><a href="/python/" class="link-title">Python</a> <span class="title" style="display:none;">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python/basis/" class="nav-link">opp</a></li><li class="dropdown-item"><!----> <a href="/python/oop/" class="nav-link">oop</a></li><li class="dropdown-item"><!----> <a href="/python/Network_concurrency/" class="nav-link">网络并发编程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front_end/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/front_end/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/front_end/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front_end/jquery/" class="nav-link">jquery</a></li><li class="dropdown-item"><!----> <a href="/front_end/ui/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/" class="nav-link">vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/python_web/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python_web/django/" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf/" class="nav-link">drf</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf_re/" class="nav-link">drf_re</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实战" class="dropdown-title"><a href="/project/" class="link-title">实战</a> <span class="title" style="display:none;">实战</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前后端不分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/bbs/" class="nav-link">BBS</a></li><li class="dropdown-subitem"><a href="/project/order/" class="nav-link">订单系统</a></li><li class="dropdown-subitem"><a href="/project/crm/" class="nav-link">CRM</a></li></ul></li><li class="dropdown-item"><h4>前后端分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/supply/" class="nav-link">供应链系统</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/other/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/essays/" class="nav-link">杂文</a></li><li class="dropdown-item"><h4>关于我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/about/" class="nav-link">me</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><!----> <span class="title" style="display:;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/OnePieceDC/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/avatar.gif"> <div class="blogger-info"><h3>DC</h3> <span>愿我一生欢喜,不为世俗所及.</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="IT必备" class="dropdown-title"><a href="/IT/" class="link-title">IT必备</a> <span class="title" style="display:none;">IT必备</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/IT/basis/" class="nav-link">计算机基础</a></li><li class="dropdown-item"><!----> <a href="/IT/linux/" class="nav-link">linux基础</a></li><li class="dropdown-item"><!----> <a href="/IT/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/IT/git/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/IT/structure/" class="nav-link">数据结构与算法</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><a href="/python/" class="link-title">Python</a> <span class="title" style="display:none;">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python/basis/" class="nav-link">opp</a></li><li class="dropdown-item"><!----> <a href="/python/oop/" class="nav-link">oop</a></li><li class="dropdown-item"><!----> <a href="/python/Network_concurrency/" class="nav-link">网络并发编程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front_end/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/front_end/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/front_end/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front_end/jquery/" class="nav-link">jquery</a></li><li class="dropdown-item"><!----> <a href="/front_end/ui/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/" class="nav-link">vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/python_web/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/python_web/django/" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf/" class="nav-link">drf</a></li><li class="dropdown-item"><!----> <a href="/python_web/drf_re/" class="nav-link">drf_re</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实战" class="dropdown-title"><a href="/project/" class="link-title">实战</a> <span class="title" style="display:none;">实战</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前后端不分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/bbs/" class="nav-link">BBS</a></li><li class="dropdown-subitem"><a href="/project/order/" class="nav-link">订单系统</a></li><li class="dropdown-subitem"><a href="/project/crm/" class="nav-link">CRM</a></li></ul></li><li class="dropdown-item"><h4>前后端分离</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/project/supply/" class="nav-link">供应链系统</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/other/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/essays/" class="nav-link">杂文</a></li><li class="dropdown-item"><h4>关于我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/about/" class="nav-link">me</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><!----> <span class="title" style="display:;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/OnePieceDC/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>linux基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/da5198/" class="sidebar-link">准备工作</a></li><li><a href="/pages/8939f4/" class="sidebar-link">初识shell与基础常用命令</a></li><li><a href="/pages/b323da/" aria-current="page" class="active sidebar-link">文件管理之基础命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/b323da/#根目录结构" class="sidebar-link">根目录结构</a></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#路径" class="sidebar-link">路径</a></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#文件操作基础命令" class="sidebar-link">文件操作基础命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/b323da/#命令连接的两种方式" class="sidebar-link">命令连接的两种方式</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#pwd" class="sidebar-link">pwd</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cd" class="sidebar-link">cd</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#ls" class="sidebar-link">ls</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#tree" class="sidebar-link">tree</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#创建" class="sidebar-link">创建</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/b323da/#touch" class="sidebar-link">touch</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#mkdir" class="sidebar-link">mkdir</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#复制" class="sidebar-link">复制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cp" class="sidebar-link">cp</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cp-r" class="sidebar-link">cp -r</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cp-a" class="sidebar-link">cp -a</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cp-f" class="sidebar-link">cp -f</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cp-i" class="sidebar-link">cp -i</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#移动与删除" class="sidebar-link">移动与删除</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/b323da/#mv" class="sidebar-link">mv</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#rm" class="sidebar-link">rm</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/b323da/#查看文件内容" class="sidebar-link">查看文件内容</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/b323da/#cat" class="sidebar-link">cat</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#head" class="sidebar-link">head</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#tail" class="sidebar-link">tail</a></li><li class="sidebar-sub-header level3"><a href="/pages/b323da/#其他" class="sidebar-link">其他</a></li></ul></li></ul></li><li><a href="/pages/bd85fe/" class="sidebar-link">文件管理之四大模式</a></li><li><a href="/pages/4e332e/" class="sidebar-link">文件管理之命令补充</a></li><li><a href="/pages/e843c3/" class="sidebar-link">文件管理之文件系统</a></li><li><a href="/pages/15d340/" class="sidebar-link">权限管理之用户与组</a></li><li><a href="/pages/1683d8/" class="sidebar-link">权限管理之文件权限</a></li><li><a href="/pages/7ba656/" class="sidebar-link">权限管理之ACL</a></li><li><a href="/pages/415178/" class="sidebar-link">权限管理之su与sudo</a></li><li><a href="/pages/80cc13/" class="sidebar-link">软件包管理之rpm</a></li><li><a href="/pages/0c6963/" class="sidebar-link">软件包管理之yum</a></li><li><a href="/pages/4944d1/" class="sidebar-link">查看进程</a></li><li><a href="/pages/cece9f/" class="sidebar-link">管理进程</a></li><li><a href="/pages/9c5405/" class="sidebar-link">存储管理之传统磁盘管理</a></li><li><a href="/pages/0d43c6/" class="sidebar-link">存储管理之LVM</a></li><li><a href="/pages/0fa05e/" class="sidebar-link">网络管理</a></li><li><a href="/pages/fb22ed/" class="sidebar-link">shell基础</a></li><li><a href="/pages/d423cf/" class="sidebar-link">crond计划任务</a></li><li><a href="/pages/f264b1/" class="sidebar-link">系统优化</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构与算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-91157402><div class="articleInfo" data-v-91157402><ul class="breadcrumbs" data-v-91157402><li data-v-91157402><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-91157402></a></li> <li data-v-91157402><a href="/categories/?category=IT_Need" title="分类" data-v-91157402>IT_Need</a></li><li data-v-91157402><a href="/categories/?category=linux%E5%9F%BA%E7%A1%80" title="分类" data-v-91157402>linux基础</a></li></ul> <div class="info" data-v-91157402><div title="作者" class="author iconfont icon-touxiang" data-v-91157402><a href="https://github.com/OnePieceDC" target="_blank" title="作者" class="beLink" data-v-91157402>DC</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-91157402><a href="javascript:;" data-v-91157402>2023-03-20</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">文件管理之基础命令<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="根目录结构"><a href="#根目录结构" class="header-anchor">#</a> 根目录结构</h2> <blockquote><p>目录指的就是文件夹<br>
+Ps: 文件夹里存放的是具体有哪些文件;文件里存放的是具体的数据.</p></blockquote> <p>Windows: 以多根的方式组织文件 C:\      D:\       E:\<br> <strong>Linux</strong>: 以单根的方式组织文件<code>/</code>	是以树形的结构来组织文件</p> <p>■ <font color="red"><code>bin -&gt; usr/bin</code></font> 普通用户使用的命令<br> <font color="gray">Ps: <strong>-&gt;</strong> 代表 根下的bin文件夹 <em>/bin</em> 是 <em>/usr/bin</em> 文件夹的 <strong>快捷方式</strong>.. 官方称为 <strong>软链接</strong></font></p> <p>■<font color="red"><code>sbin -&gt; usr/sbin</code></font>  管理员使用的命令</p> <p>■ <code>boot</code>  存放启动相关的文件<br> <font color="gray">例如 kernel内核, grub引导装载程序</font></p> <p>■ <font color="red"><code>dev</code></font>  设备文件<br> <font color="lightblue"><strong>/dev/sda</strong></font>      硬盘     s指硬盘接口SCSI;d是disk硬盘;a代表第一块<br> <font color="lightblue"><strong>/dev/cdrom</strong></font> <font color="lightblue"><strong>/dev/sr0</strong></font>      光驱光盘镜像设备<br>
+                                用来为我们的操作系统补充包,因为最小化安装只是将一部分内容写入到了硬盘<br> <font color="lightblue"><strong>/dev/null</strong></font>      黑洞文件,把不想要显示的内容丢入黑洞..只进不出 通常写脚本软件的时候会用<br>
+     /dev/pts/0     虚拟的Bash Shell终端,提供给远程用户使用<br>
+                             aa0代表第一个终端 1代表第2个终端   以此类推</p> <p>■ <font color="red"><code>etc</code></font>  配置文件,很重要,系统级服务配置文件都在这里<br> <font color="lightblue"><strong>/etc/hostname</strong></font> 系统主机名配置文件<br> <font color="lightblue"><strong>/etc/sysconfig/network-scripts/ifcfg-ens33</strong></font> 网卡配置文件<br> <font color="lightblue"><strong>/etc/resolv.conf</strong></font> 指定远程DNS的地址<br> <font color="lightblue"><strong>/etc/hosts</strong></font> 本机的域名解析文件<br> <font color="lightblue"><strong>/etc/sysconfig/selinux</strong></font> SELINUX配置文件</p> <p>■ <font color="green"><code>home</code></font>  /home/dc 普通用户dc的家目录</p> <p>■ <font color="green"><code>root</code></font>  /root  管理员root用户的家目录</p> <p>■ <code>lib -&gt; usr/lib</code> <code>lib64 -&gt; usr/lib64</code>  库文件
+     里面时操作系统这个软件所引用所依赖的库</p> <p>■ <code>media</code> <code>mnt</code> <code>opt</code>  都是空文件夹  移动设备(eg U盘)的 <strong>挂载点</strong> media是默认的</p> <p>■ <font color="red"><code>proc</code></font>  process的缩写,放的是进程相关的内容
+     <font color="lightblue"><strong>/proc/sys/net/ipv4</strong></font> 内核参数优化文件
+     <code>cat /proc/sys/net/ipv4 /tcp_max_syn_backlog</code>   半连接池</p> <p>■ <code>run</code>  存放程序运行后所产生的pid(进程编号)文件</p> <p>■ <code>srv</code>  物理设备产生的一些文件 空文件夹</p> <p>■ <code>sys</code>  硬件设备的驱动程序信息,不要动它</p> <p>■ <code>tmp</code>  临时存放文件,类似于回收站,系统会定时删除该目录下长时间没有访问的文件</p> <p>■ <code>usr</code>  与系统有关的文件,相当于C:\Windows</p> <p>■ <font color="red"><code>var</code></font>  存放的是一些变化文件 eg: 数据库、日志、邮件等<br>
+     /var/lib/mysql                        mysql<br>
+     /var/ftp                                      vsftpd<br>
+     /var/spool/mail                      mail<br>
+     /var/spool/cron                     cron<br>
+     log<br> <font color="lightblue"><strong>/var/log</strong></font>                              系统日志文件存放目录<br>
+          /var/log/messages           系统日志<br>
+         /var/log/secure              系统登录日志<br>
+         /var/tmp                              临时文件(主要是程序产生的临时文件)<br> <font color="gray">Ps:  tail -f /var/log/messages  动态查看日志文件</font></p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls -l /</span>
+总用量 <span class="token number">28</span>
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">7</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:17 bin -<span class="token operator">&gt;</span> usr/bin
+dr-xr-xr-x.   <span class="token number">5</span> root root <span class="token number">4096</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">23</span>:49 boot
+drwxr-xr-x   <span class="token number">21</span> root root <span class="token number">3360</span> <span class="token number">7</span>月   <span class="token number">4</span> <span class="token number">22</span>:54 dev
+drwxr-xr-x. <span class="token number">144</span> root root <span class="token number">8192</span> <span class="token number">7</span>月   <span class="token number">5</span> <span class="token number">14</span>:39 etc
+drwxr-xr-x.   <span class="token number">4</span> root root   <span class="token number">32</span> <span class="token number">7</span>月   <span class="token number">4</span> <span class="token number">16</span>:51 home
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">7</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:17 lib -<span class="token operator">&gt;</span> usr/lib
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">9</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:17 lib64 -<span class="token operator">&gt;</span> usr/lib64
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> <span class="token number">4</span>月  <span class="token number">11</span> <span class="token number">2018</span> media
+drwxr-xr-x.   <span class="token number">3</span> root root   <span class="token number">18</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">23</span>:42 mnt
+drwxr-xr-x.   <span class="token number">3</span> root root   <span class="token number">16</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:25 opt
+dr-xr-xr-x  <span class="token number">214</span> root root    <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">4</span> <span class="token number">22</span>:54 proc
+dr-xr-x---.  <span class="token number">14</span> root root <span class="token number">4096</span> <span class="token number">7</span>月   <span class="token number">4</span> <span class="token number">22</span>:55 root
+drwxr-xr-x   <span class="token number">41</span> root root <span class="token number">1240</span> <span class="token number">7</span>月   <span class="token number">5</span> <span class="token number">15</span>:58 run
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">8</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:17 sbin -<span class="token operator">&gt;</span> usr/sbin
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> <span class="token number">4</span>月  <span class="token number">11</span> <span class="token number">2018</span> srv
+dr-xr-xr-x   <span class="token number">13</span> root root    <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">5</span> <span class="token number">18</span>:23 sys
+drwxrwxrwt.  <span class="token number">31</span> root root <span class="token number">4096</span> <span class="token number">7</span>月   <span class="token number">5</span> <span class="token number">17</span>:42 tmp
+drwxr-xr-x.  <span class="token number">13</span> root root  <span class="token number">155</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:17 usr
+drwxr-xr-x.  <span class="token number">21</span> root root <span class="token number">4096</span> <span class="token number">6</span>月  <span class="token number">30</span> <span class="token number">18</span>:47 var
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># which ls</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ls</span><span class="token operator">=</span><span class="token string">'ls --color=auto'</span>
+	/usr/bin/ls
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># /usr/bin/ls</span>
+anaconda-ks.cfg       公共  视频  文档	音乐
+initial-setup-ks.cfg  模板  图片  下载	桌面
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># /bin/ls</span>
+anaconda-ks.cfg       公共  视频  文档	音乐
+initial-setup-ks.cfg  模板  图片  下载	桌面
+
+<span class="token comment"># [TCP的半连接池]</span>
+<span class="token comment"># grep过滤筛选..</span>
+<span class="token comment"># 内核相当一部分的优化,即与网络参数优化相关的文件 都在 /proc/sys/net/ipv4 该文件夹下面</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls /proc/sys/net/ipv4/ | grep backlog  </span>
+tcp_max_syn_backlog
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /proc/sys/net/ipv4/tcp_max_syn_backlog </span>
+<span class="token number">128</span>
+
+<span class="token comment"># `pwd` 查看当前所在文件夹的完整路径</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># pwd</span>
+/root
+<span class="token comment"># `cd` 切换文件夹</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /root</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><hr> <h2 id="路径"><a href="#路径" class="header-anchor">#</a> 路径</h2> <p><strong>绝对路径</strong>: 路径是从根开始的,即以<code>/</code>作为前缀<br>
+        eg: <code>/etc/sysconfig/network-scripts/</code> <font color="blue"><strong>只有第一个右斜杠代表根文件夹, 其余的都是路径分隔符</strong></font><br> <font color="gray">/etc/////sysconfig///////network-scripts 与 /etc/sysconfig/network-scripts 效果是一样的!</font></p> <p><strong>相对路径</strong>: 只要路径不是以<code>/</code>开头, 会以当前所在文件夹的路径为开头&quot;<em>即pwd的结果</em>&quot;进行拼接</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># pwd</span>
+/root
+<span class="token comment"># 进行拼接 相当于访问路径 /root/etc/sysconfig/network-scripts/ifcfg-ens33 </span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls etc/sysconfig/network-scripts/ifcfg-ens33 </span>
+ls: 无法访问etc/sysconfig/network-scripts/ifcfg-ens33: 没有那个文件或目录
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /etc/</span>
+<span class="token punctuation">[</span>root@localhost etc<span class="token punctuation">]</span><span class="token comment"># pwd</span>
+/etc
+<span class="token comment"># 进行拼接 相当于访问路径 /etc/sysconfig/network-scripts/ifcfg-ens33 </span>
+<span class="token punctuation">[</span>root@localhost etc<span class="token punctuation">]</span><span class="token comment"># ls sysconfig/network-scripts/ifcfg-ens33 </span>
+sysconfig/network-scripts/ifcfg-ens33
+
+<span class="token builtin class-name">.</span> 	链接到当前目录 
+<span class="token punctuation">..</span>  链接到上一级目录 	
+~   当前用户的家目录 若是管理员: ～/anaconda-ks.cfg等同于/root/anaconda-ks.cfg
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><hr> <h2 id="文件操作基础命令"><a href="#文件操作基础命令" class="header-anchor">#</a> 文件操作基础命令</h2> <h3 id="命令连接的两种方式"><a href="#命令连接的两种方式" class="header-anchor">#</a> 命令连接的两种方式</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>命令连接的两种方式:
+<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> 分号连接 -- 从左往右依次运行,不管是否出错
+  <span class="token function">ls</span><span class="token punctuation">;</span><span class="token builtin class-name">pwd</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> <span class="token number">123</span>
+<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> <span class="token operator">&amp;&amp;</span>符号连接 -- 从左往右依次运行,直到出错,后面的就不会再运行啦
+  <span class="token function">ls</span><span class="token operator">&amp;&amp;</span><span class="token builtin class-name">pwd</span><span class="token operator">&amp;&amp;</span><span class="token builtin class-name">echo</span> <span class="token number">123</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="pwd"><a href="#pwd" class="header-anchor">#</a> pwd</h3> <blockquote><p>查看当前所在目录</p></blockquote> <p><code>pwd</code>      查看当前所在文件夹路径</p> <h3 id="cd"><a href="#cd" class="header-anchor">#</a> cd</h3> <blockquote><p>切换目录</p></blockquote> <p><code>cd</code>      默认切回家目录<br> <code>cd ～</code>      切到家目录<br> <code>cd -</code>       切到上一次所在文件夹/目录<br> <code>cd .</code>      在当前文件夹不动<br> <code>cd ..</code>      切到上一级文件夹</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /etc/sysconfig/network-scripts/</span>
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># cd .</span>
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># cd ..</span>
+<span class="token punctuation">[</span>root@localhost sysconfig<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="ls"><a href="#ls" class="header-anchor">#</a> ls</h3> <blockquote><p>浏览</p></blockquote> <p><code>ls -l 文件</code>      查看指定文件的具体信息<br> <code>ls -l 文件夹</code>      查看指定文件夹下的子文件与子文件夹的信息<br> <code>ls -dl 文件夹</code>      查看指定文件夹/目录本身的信息<br> <font color="gray">当然可以通过查看上一级<code>-l</code>来达到相同的目的,但结果不是很直接</font><br> <code>ls -al</code>      浏览的结果中包含隐藏文件<br> <font color="gray">可以发现每个文件夹下都有两个特殊的文件夹<code>.</code>和<code>..</code></font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot;
+文件类型和权限    -rw-r--r--
+硬链接的个数      <span class="token number">1</span>
+属主<span class="token punctuation">(</span>文件主人<span class="token punctuation">)</span>    root
+属组<span class="token punctuation">(</span>用户组<span class="token punctuation">)</span>      root （简单理解就是哪个部门）
+文件字节大小      <span class="token number">2351</span>
+创建修改时间      <span class="token number">7</span>月4日 <span class="token number">16</span>:51
+文件名/文件路径   /etc/passwd
+
+敲黑板: linux不是以文件的后缀名来区分文件类型的,而是以ls -l的首位来区分的 -rw-r--r--
+          - 文本文件
+          d	目录/文件夹
+          l link软连接
+       后面的9位表示权限 <span class="token number">3</span>位为一组,文件主人、用户组、其他人<span class="token punctuation">(</span>不是文件主人,也不是组里的用户<span class="token punctuation">)</span>
+          r  读<span class="token punctuation">;</span> -- cat可以看里面的内容
+          w  写<span class="token punctuation">;</span> -- 在文件夹里创建删除子文件和子文件夹,vim修改文件内容
+          x  执行<span class="token punctuation">;</span> -- 文件可能是一条命令,能否运行 能否切换cd到此文件
+       Ps: -rw-r--r--. 若最后还有个点,表示此文件是在SElinux已加载状态下创建,此文件受SElinux的管制
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost sysconfig<span class="token punctuation">]</span><span class="token comment"># ls -l /etc/passwd</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">2351</span> <span class="token number">7</span>月  <span class="token number">4</span> <span class="token number">16</span>:51 /etc/passwd
+<span class="token punctuation">[</span>root@localhost /<span class="token punctuation">]</span><span class="token comment"># ls -dl /etc </span>
+drwxr-xr-x. <span class="token number">144</span> root root <span class="token number">8192</span> <span class="token number">7</span>月   <span class="token number">5</span> <span class="token number">21</span>:32 /etc
+<span class="token punctuation">[</span>root@localhost /<span class="token punctuation">]</span><span class="token comment"># ls -a</span>
+<span class="token builtin class-name">.</span>   .autorelabel  boot  etc   lib    media  opt   root  sbin  sys  usr
+<span class="token punctuation">..</span>  bin           dev   home  lib64  mnt    proc  run   srv   tmp  var
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h3 id="tree"><a href="#tree" class="header-anchor">#</a> tree</h3> <blockquote><p>查看目录树</p></blockquote> <p><font color="brown">linux一切皆文件,笼统来说,文件夹本身也是一种文件Hhhh </font><br> <code>yum install tree -y</code><br> <code>tree /boot/</code>         显示所有文件,不包括隐藏文件
+<code>tree -a /boot/</code>         显示所有文件,包括隐藏文件
+<code>tree -ad /boot/</code>         只显示文件夹,不显示文件
+<code>tree -L 1 /boot/</code>         遍历目录的最大层数,-L后应该是大于0的正整数 <font color="gray">这里是1 表示只显示/boot/的儿子</font> <code>tree -F 目录</code>           -F 在条目后加上文件类型的指示符号,例如会在显示出的目录后面加上左斜杠/</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 自个儿在家目录下创建了tree_test目录,以便实验</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree ~/tree_test/</span>
+/root/tree_test/
+└── a
+    └── b
+
+<span class="token number">2</span> directories, <span class="token number">0</span> files
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree -a ~/tree_test/</span>
+/root/tree_test/
+├── a
+│   ├── b
+│   └── .c
+└── .a.txt
+
+<span class="token number">3</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree -ad ~/tree_test/</span>
+/root/tree_test/
+└── a
+    ├── b
+    └── .c
+
+<span class="token number">3</span> directories
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree -L 1 ~/tree_test/</span>
+/root/tree_test/
+└── a
+
+<span class="token number">1</span> directory, <span class="token number">0</span> files
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree -aL 1 ~/tree_test/</span>
+/root/tree_test/
+├── a
+└── .a.txt
+
+<span class="token number">1</span> directory, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tree -aF  ~/tree_test/</span>
+/root/tree_test/
+├── a/
+│   ├── b/
+│   └── .c/
+└── .a.txt
+
+<span class="token number">3</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><hr> <h2 id="创建"><a href="#创建" class="header-anchor">#</a> 创建</h2> <h3 id="touch"><a href="#touch" class="header-anchor">#</a> touch</h3> <blockquote><p><strong>touch创建的是普通文本文件</strong>,与文件后缀名无关!!!后缀名仅仅是为了便于识别的.<br>
+我们习惯于通常是加txt的后缀.</p></blockquote> <p>可以用绝对路径, 若用相对路径的话,就建在当前位置啦..<br> <code>touch file1.txt</code> <strong>无则创建,有则修改文件的时间</strong><br>
+批量创建文件<br> <code>touch a.txt b.txt c.txt</code><br> <code>touch {d,e,f}.txt</code><br> <code>touch {1..6}.txt</code><br> <code>touch {a..c}.txt</code><br> <code>touch {1..3}{a..b}.txt</code> <font color="gray"><strong>会进行排列组合!这里共会有6个文件</strong></font><br> <code>touch ego{n,N}.txt</code> <font color="gray">相当于 touch egon.txt egoN.txt </font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch a.txt b.txt c.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a.txt  b.txt  c.txt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch {d,e,f}.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a.txt  b.txt  c.txt  d.txt  e.txt  f.txt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf       # 注意哦,无效!没啥效果..</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf b.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf *</span>
+<span class="token comment"># 等同于 touch /opt/{1..6}.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch {1..6}.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token number">1</span>.txt  <span class="token number">2</span>.txt  <span class="token number">3</span>.txt  <span class="token number">4</span>.txt  <span class="token number">5</span>.txt  <span class="token number">6</span>.txt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf *</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch {a..d}.txt </span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a.txt  b.txt  c.txt  d.txt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf *</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch {1..3}{a..b}.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+1a.txt  1b.txt  2a.txt  2b.txt  3a.txt  3b.txt
+
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> *
+    删除当前opt文件夹下的所有内容  
+    r递归删,删文件夹必须加<span class="token punctuation">;</span>
+    f强制删,不管是删文件还是文件夹都不会询问是否删除,不会提示啦！
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf *</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls -l</span>
+总用量 <span class="token number">0</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h3 id="mkdir"><a href="#mkdir" class="header-anchor">#</a> mkdir</h3> <blockquote><p>mkdir  “make diretory” 用于创建文件夹/目录</p></blockquote> <p>○ 相对路径与绝对路径创建目录<br>
+○ 结合花括号批量创建目录<br>
+○ -v 反馈创建成功的信息<br>
+○ <strong>-p</strong> 根据路径 <strong>递归的创建</strong> 目录</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 绝对路径创建目录</span>
+<span class="token punctuation">[</span>root@localhost /<span class="token punctuation">]</span><span class="token comment"># mkdir /opt/test</span>
+<span class="token punctuation">[</span>root@localhost /<span class="token punctuation">]</span><span class="token comment"># cd /opt/test</span>
+<span class="token comment"># 相对路径创建目录</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir a b</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a  b
+<span class="token comment"># 绝对路径结合{}花括号</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir /opt/test/{c,d}</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a  b  c  d
+<span class="token comment"># -v 反馈创建的信息</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir -v {mmm,nnn}</span>
+mkdir: 已创建目录 <span class="token string">&quot;mmm&quot;</span>
+mkdir: 已创建目录 <span class="token string">&quot;nnn&quot;</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># ls</span>
+a  b  c  d  mmm  nnn
+<span class="token comment"># 因为a文件夹下没有b文件夹 所以c文件夹创建失败</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir a/b/c</span>
+mkdir: 无法创建目录<span class="token string">&quot;a/b/c&quot;</span><span class="token builtin class-name">:</span> 没有那个文件或目录
+<span class="token comment"># -p 递归的创建文件夹</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir -p a/b/c</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># mkdir -p /opt/test/x/y/z</span>
+<span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── a
+│   └── b
+│       └── c
+├── b
+├── c
+├── d
+├── mmm
+├── nnn
+└── x
+    └── y
+        └── z
+
+<span class="token number">11</span> directories, <span class="token number">0</span> files
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><hr> <h2 id="复制"><a href="#复制" class="header-anchor">#</a> 复制</h2> <h3 id="cp"><a href="#cp" class="header-anchor">#</a> cp</h3> <blockquote><p>cp &quot;copy&quot; 用于复制文件、文件夹/目录..<br>
+原理: 找到源文件,创建一个新的空文件,将源文件的内容读取出来写到新文件中.</p> <p><font color="red"><strong>cp 四大选项 -r｜-a｜-f ｜-i</strong></font></p></blockquote> <p><strong>cp 文件源路径  文件目标路径</strong><br> <code>cp /etc/passwd .</code>  把passwd文件拷贝到当前文件夹下, 新文件名不变<br> <code>cp /etc/passwd ./h.txt</code>  把passwd文件拷贝到/opt文件夹下, 新文件名命名为h.txt</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># pwd</span>
+/opt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls -l</span>
+总用量 <span class="token number">0</span>
+<span class="token string">&quot;&quot;</span>&quot;
+这里的.指代当前所在目录/opt
+<span class="token function">cp</span> /etc/passwd ./h.txt 等同于 <span class="token function">cp</span> /etc/passwd /opt/h.txt
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cp /etc/passwd .					 # 拷贝过来不改名</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cp /etc/passwd ./h.txt		 # 拷贝过来并改名 h.txt文件不用事先存在</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls -l</span>
+总用量 <span class="token number">8</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">2351</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">17</span>:07 h.txt
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">2351</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">17</span>:06 <span class="token function">passwd</span> 
+
+<span class="token string">&quot;&quot;</span>&quot;
+/opt下没有test文件夹,所以失败
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cp /etc/passwd ./test/h2.txt</span>
+cp: 无法创建普通文件<span class="token string">&quot;./test/h2.txt&quot;</span><span class="token builtin class-name">:</span> 没有那个文件或目录
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h3 id="cp-r"><a href="#cp-r" class="header-anchor">#</a> cp -r</h3> <p><strong>cp -r 源文件夹 目标文件夹</strong>           # 目标文件夹下有个跟源文件夹同名的子文件夹<br> <em><em>cp -r 源文件夹/</em> 目标文件夹</em>*       # 把源文件夹的子子孙孙拷贝到目标文件夹下,不包括源文件夹这一层<br> <font color="brown">敲黑板! 拷贝文件夹必须加*-r*</font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot;
+注意哦,这里是把根目录下的boot文件夹拷贝到了opt文件夹下,还带着boot这个文件夹
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cp -r /boot/ /opt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls -l</span>
+总用量 <span class="token number">4</span>
+dr-xr-xr-x <span class="token number">5</span> root root <span class="token number">4096</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">17</span>:31 boot 
+<span class="token string">&quot;&quot;</span>&quot;
+有可能,我们的需求是将boot文件夹下的所有内容<span class="token punctuation">(</span>即boot的子子孙孙<span class="token punctuation">)</span>拷贝到 opt文件夹里,不需要boot这一层文件夹
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># rm -rf *</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls -l</span>
+总用量 <span class="token number">0</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cp -r /boot/* /opt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ls</span>
+config-3.10.0-1160.66.1.el7.x86_64
+config-3.10.0-1160.el7.x86_64
+efi
+grub
+grub2
+initramfs-0-rescue-be87405afe3b480da138503ccab0ebd2.img
+initramfs-3.10.0-1160.66.1.el7.x86_64.img
+initramfs-3.10.0-1160.el7.x86_64.img
+symvers-3.10.0-1160.66.1.el7.x86_64.gz
+symvers-3.10.0-1160.el7.x86_64.gz
+System.map-3.10.0-1160.66.1.el7.x86_64
+System.map-3.10.0-1160.el7.x86_64
+vmlinuz-0-rescue-be87405afe3b480da138503ccab0ebd2
+vmlinuz-3.10.0-1160.66.1.el7.x86_64
+vmlinuz-3.10.0-1160.el7.x86_64
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h3 id="cp-a"><a href="#cp-a" class="header-anchor">#</a> cp -a</h3> <blockquote><p>拷贝过程中将所有的信息一摸一样的给新文件</p></blockquote> <p><strong>cp  -a  /home/dc/a.txt   /mnt/b.txt</strong></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>△ 普通用户dc在家目录下创建文件a.txt
+<span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">pwd</span>
+/home/dc
+<span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">ls</span>
+<span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">touch</span> a.txt
+<span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">0</span>
+-rw-rw-r-- <span class="token number">1</span> <span class="token function">dc</span> <span class="token function">dc</span> <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">21</span>:34 a.txt
+
+△ root用户是管理员,是有权限看到普通用户dc家目录里的内容的
+<span class="token string">&quot;&quot;</span>&quot;
+root用户通过拷贝dc家目录下的a.txt文件到/mnt/文件夹下,
+发现拷贝文件的 所属人和用户组 都从dc变成了root 因为是root执行的cp命令
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># pwd</span>
+/root
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ls</span>
+anaconda-ks.cfg       公共  视频  文档  音乐
+initial-setup-ks.cfg  模板  图片  下载  桌面
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ll /home/dc/a.txt</span>
+-rw-rw-r-- <span class="token number">1</span> <span class="token function">dc</span> <span class="token function">dc</span> <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">21</span>:34 /home/dc/a.txt
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cp /home/dc/a.txt /mnt/</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ll /mnt/a.txt</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">21</span>:37 /mnt/a.txt
+<span class="token string">&quot;&quot;</span>&quot;
+若想在拷贝过程中将所有的信息一摸一样的给新文件,需要加 <span class="token parameter variable">-a</span> 选项
+注意: 必须是root用户操作才有用,普通用户加-a选项无效
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cp -a /home/dc/a.txt /mnt/b.txt</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ll /mnt/b.txt</span>
+-rw-rw-r-- <span class="token number">1</span> <span class="token function">dc</span> <span class="token function">dc</span> <span class="token number">0</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">21</span>:34 /mnt/b.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h3 id="cp-f"><a href="#cp-f" class="header-anchor">#</a> cp -f</h3> <blockquote><p>-f选项与权限打了个交道</p></blockquote> <p><strong>cp   -f   /opt/test/a.txt   /opt/test1/a.txt</strong></p> <p><font color="brown">当前用户对目标文件夹<code>/test1</code>有wx权限 (<strong>这是大前提!!!</strong>) </font><br> <font color="brown">但是当前用户对目标文件<code>/test1/a.txt</code>没有写权限. 在拷贝时候,cp命令可以加上<code>-f</code>选项, -f选项会先执行<code>rm -rf /test1/a.txt</code>删除目标文件,再执行<code>cp /opt/test/a.txt /opt/test1</code>!!!</font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot;&quot;</span>&quot;
+△ 登录root账户,进行以下的准备工作
+root用户在opt空文件夹里创建了test与test1文件夹,并在两个文件夹里都创建了名为a.txt的文件
+往test/a.txt输入内容<span class="token string">'000'</span><span class="token punctuation">;</span>往test1/a.txt输入内容<span class="token string">'111'</span>
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># mkdir test test1</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch test/a.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># touch test1/a.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># echo &quot;000&quot; &gt; test/a.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># echo &quot;111&quot; &gt; test1/a.txt</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cat test/a.txt</span>
+000
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># cat test1/a.txt</span>
+<span class="token number">111</span>
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll -d test1/</span>
+drwxr-xr-x <span class="token number">2</span> root root <span class="token number">19</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">22</span>:20 test1/
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll test/a.txt</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">4</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">22</span>:21 test/a.txt
+<span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll test1/a.txt</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">4</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">22</span>:21 test1/a.txt
+
+<span class="token string">&quot;&quot;</span>&quot;
+我们知道cp拷贝的本质是:找到源文件,创建一个新的空文件,将源文件的内容读取出来写到新文件中.
+现在登录了用户m,对下面这两种情况进行分析
+★ 情况<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> 
+  <span class="token function">rm</span> <span class="token parameter variable">-rf</span> /opt/test1/a.txt      <span class="token comment"># 注意哦,这里先把test1文件夹下的a.txt文件删除掉啦</span>
+  <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+  <span class="token builtin class-name">.</span>
+  ├── <span class="token builtin class-name">test</span>
+  │   └── a.txt
+  └── test1
+  
+  <span class="token number">2</span> directories, <span class="token number">1</span> files
+  
+  <span class="token function">cp</span> /opt/test/a.txt /opt/test1
+  用户m需要有对/opt/test/a.txt文件拥有读权限 
+  以及 对/opt/test1文件拥有x可执行权限<span class="token punctuation">(</span>切进test1这个目录<span class="token punctuation">)</span>和w写权限<span class="token punctuation">(</span>往test1文件夹里写入新文件a.txt<span class="token punctuation">)</span>
+  只是cp操作的话,用户m对/opt/test1的写权限的话没必要有
+  但通过观察 /opt/test1的权限为 drwxr-xr-x 发现现在除了root用户的其他用户对test1文件夹都没写权限
+  所以用户m是普通用户dc时.执行这条命令会反馈权限不够.
+      <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cp</span> /opt/test/a.txt /opt/test1
+      cp: 无法创建普通文件<span class="token string">&quot;/opt/test1/a.txt&quot;</span><span class="token builtin class-name">:</span> 权限不够
+  <span class="token punctuation">[</span>解决方案<span class="token punctuation">]</span>:用root账户更改其它用户<span class="token punctuation">(</span>用户dc<span class="token punctuation">)</span>对test1文件夹的权限,让其至少拥有写权限和执行权限 <span class="token parameter variable">-wx</span>
+      <span class="token comment"># 这里让其他用户拥有r权限,是方便普通用户dc使用tree以及ls命令查看test1文件夹</span>
+      <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># chmod o=rwx test1/</span>
+      <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll -d test1/</span>
+      drwxr-xrwx <span class="token number">2</span> root root <span class="token number">19</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">22</span>:58 test1/
+  登录普通用户dc,执行以下命令<span class="token punctuation">..</span>
+  <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cp</span> /opt/test/a.txt /opt/test1/
+  <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ tree /opt
+    /opt
+    ├── <span class="token builtin class-name">test</span>
+    │   └── a.txt
+    └── test1
+        └── a.txt
+
+  <span class="token number">2</span> directories, <span class="token number">2</span> files
+  <span class="token comment"># 这是dc用户执行拷贝命令创建的文件a.txt 所以其用户和用户组都是dc</span>
+  <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ ll /opt/test1/a.txt
+  -rw-r--r-- <span class="token number">1</span> <span class="token function">dc</span> <span class="token function">dc</span> <span class="token number">4</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">22</span>:58 /opt/test1/a.txt
+  <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cat</span> /opt/test1/a.txt
+  000
+  
+★ 情况<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> 
+  <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+  <span class="token builtin class-name">.</span>
+  ├── <span class="token builtin class-name">test</span>
+  │   └── a.txt
+  └── test1
+      └── a.txt
+
+  <span class="token number">2</span> directories, <span class="token number">2</span> files
+  <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll -d /opt/test1</span>
+  drwxr-xr-x <span class="token number">2</span> root root <span class="token number">19</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">23</span>:35 /opt/test1
+  <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll /opt/test1/a.txt</span>
+  -rw-r--r-- <span class="token number">1</span> root root <span class="token number">4</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">23</span>:35 /opt/test1/a.txt
+  
+  <span class="token function">cp</span> /opt/test/a.txt /opt/test1/a.txt
+  用户m需要有对/opt/test/a.txt文件拥有读权限,以及对/opt/test1/a.txt拥有写权限
+  但通过观察/opt/test1/a.txt的权限为-rw-r--r--,发现其他用户对此文件只有读权限<span class="token punctuation">..</span>
+  若用户m是普通用户dc,执行 <span class="token function">cp</span> /opt/test/a.txt /opt/test1/a.txt 
+  理想情况下,linux底层会将源文件读出来往新文件里面写,新文件若已经存在,就不会新创建啦,会覆盖掉<span class="token punctuation">..</span>
+  但权限不够啊！！！
+      <span class="token comment"># 最直白的原因,a.txt文件已经存在了,dc用户没有往里面写的权限</span>
+      <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cp</span> /opt/test/a.txt /opt/test1/a.txt
+      cp: 无法创建普通文件<span class="token string">&quot;/opt/test1/a.txt&quot;</span><span class="token builtin class-name">:</span> 权限不够
+  <span class="token punctuation">[</span>解决方案<span class="token punctuation">]</span> cp使用选项 <span class="token parameter variable">-f</span> 如果有需要,删除已存在的目的文件<span class="token punctuation">..</span> 相当于变成情况一的样子<span class="token operator">!</span><span class="token operator">!</span>
+      <span class="token comment"># 但依然提示权限不够,那是因为其他用户对/opt/test1没有写权限导致的</span>
+      <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cp</span> <span class="token parameter variable">-f</span> /opt/test/a.txt /opt/test1/a.txt
+      cp: 无法删除<span class="token string">&quot;/opt/test1/a.txt&quot;</span><span class="token builtin class-name">:</span> 权限不够
+      <span class="token comment"># 添加其他用户对/opt/test1的写权限</span>
+      <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># chmod o=rwx test1/</span>
+      <span class="token punctuation">[</span>root@localhost opt<span class="token punctuation">]</span><span class="token comment"># ll -d test1/</span>
+      drwxr-xrwx <span class="token number">2</span> root root <span class="token number">19</span> <span class="token number">7</span>月   <span class="token number">6</span> <span class="token number">23</span>:35 test1/
+      <span class="token comment"># 再执行命令</span>
+      <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cp</span> <span class="token parameter variable">-f</span> /opt/test/a.txt /opt/test1/a.txt
+      <span class="token punctuation">[</span>dc@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cat</span> /opt/test1/a.txt
+      000
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br></div></div><h3 id="cp-i"><a href="#cp-i" class="header-anchor">#</a> cp -i</h3> <blockquote><p>-i 选项与交互有关,给提示</p> <p>有的系统在安装的时候, <code>cp - i</code>的 alias别名就是cp, 也就是说在执行<code>cp</code>的时候, 其实是执行的<code>cp -i</code></p></blockquote> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 处于安全考虑,root用户下对cp命令有改造,但普通用户下没有对cp命令的改造!!</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># alias</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">cp</span><span class="token operator">=</span><span class="token string">'cp -i'</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">mv</span><span class="token operator">=</span><span class="token string">'mv -i'</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">rm</span><span class="token operator">=</span><span class="token string">'rm -i'</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir a b</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch a/m.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch b/m.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># echo &quot;111&quot; &gt; a/m.txt </span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># echo &quot;222&quot; &gt; b/m.txt </span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># cat a/m.txt</span>
+<span class="token number">111</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># cat b/m.txt</span>
+<span class="token number">222</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># cp a/m.txt b/m.txt</span>
+cp：是否覆盖<span class="token string">&quot;b/m.txt&quot;</span>？ n
+
+不想要提示的解决方案:
+<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> <span class="token builtin class-name">unalias</span> <span class="token function">cp</span>
+<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> /usr/bin/cp
+<span class="token operator"><span class="token file-descriptor important">3</span>&gt;</span> <span class="token punctuation">\</span>cp a/m.txt b/m.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><hr> <h2 id="移动与删除"><a href="#移动与删除" class="header-anchor">#</a> 移动与删除</h2> <h3 id="mv"><a href="#mv" class="header-anchor">#</a> mv</h3> <blockquote><p>类似于window里的剪切..</p></blockquote> <p>■ 移动文件</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir test1 test2</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch test1/a.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch test1/b.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+│   ├── a.txt
+│   └── b.txt
+└── test2
+
+<span class="token number">2</span> directories, <span class="token number">2</span> files
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test1/a.txt test2/</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test1/b.txt test2/bbb.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+└── test2
+    ├── a.txt
+    └── bbb.txt
+
+<span class="token number">2</span> directories, <span class="token number">2</span> files
+
+<span class="token comment"># 同一个文件夹下给文件改名的操作</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test1/a.txt test1/b.txt</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>■ 移动文件夹</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir -p test1/a/b/c</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir test2</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch test1/a/b/c/a.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+│   └── a
+│       └── b
+│           └── c
+│               └── a.txt
+└── test2
+
+<span class="token number">5</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test1/a/ test2/</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+└── test2
+    └── a
+        └── b
+            └── c
+                └── a.txt
+
+<span class="token number">5</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token comment"># 为移动的文件夹重新命了名..</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test2/a/ test1/xxx</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+│   └── xxx
+│       └── b
+│           └── c
+│               └── a.txt
+└── test2
+
+<span class="token number">5</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p>■ 移动文件夹内容(子子孙孙),不包括文件夹这一层</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir -p test1/mmm</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir test2/</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch test1/mmm/{1..3}.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+│   └── mmm
+│       ├── <span class="token number">1</span>.txt
+│       ├── <span class="token number">2</span>.txt
+│       └── <span class="token number">3</span>.txt
+└── test2
+
+<span class="token number">3</span> directories, <span class="token number">3</span> files
+<span class="token comment"># mmm文件夹还在,mmm文件夹的子子孙孙被移动走了</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mv test1/mmm/* test2/</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tree</span>
+<span class="token builtin class-name">.</span>
+├── test1
+│   └── mmm
+└── test2
+    ├── <span class="token number">1</span>.txt
+    ├── <span class="token number">2</span>.txt
+    └── <span class="token number">3</span>.txt
+
+<span class="token number">3</span> directories, <span class="token number">3</span> files
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="rm"><a href="#rm" class="header-anchor">#</a> rm</h3> <blockquote><p><strong>注意! rm 的 -f选项 与 cp的 -f选项是不一样的!!!</strong></p></blockquote> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">rm</span> <span class="token parameter variable">-rf</span>
+<span class="token parameter variable">-r</span> 递归
+<span class="token parameter variable">-f</span> force强制 这会使-i不生效啦<span class="token operator">!</span>
+<span class="token parameter variable">-v</span> 详细过程,会告诉你删除了哪些内容.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><hr> <h2 id="查看文件内容"><a href="#查看文件内容" class="header-anchor">#</a> 查看文件内容</h2> <p>△ 数据准备</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># mkdir test</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># touch test/a.txt</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># vim test/a.txt </span>
+
+<span class="token string">&quot;&quot;</span>&quot;
+<span class="token number">111</span>
+<span class="token number">222</span>
+<span class="token number">333</span>
+<span class="token number">444</span>
+<span class="token number">555</span>
+<span class="token number">666</span>
+aaa
+bbb
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="cat"><a href="#cat" class="header-anchor">#</a> cat</h3> <p><strong>-n</strong>  显示行号<br> <strong>-A</strong>  包括控制字符(换行符 /n 代表换行)<br> <font color="gray">Ps: linux下cat查看显示为<code>$</code> ; Window下为 <code>^M$</code></font></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># cat -An test/a.txt </span>
+     <span class="token number">1</span>	<span class="token number">111</span>$
+     <span class="token number">2</span>	<span class="token number">222</span>$
+     <span class="token number">3</span>	<span class="token number">333</span>$
+     <span class="token number">4</span>	<span class="token number">444</span>$
+     <span class="token number">5</span>	<span class="token number">555</span>$
+     <span class="token number">6</span>	<span class="token number">666</span>$
+     <span class="token number">7</span>	aaa$
+     <span class="token number">8</span>	bbb$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="head"><a href="#head" class="header-anchor">#</a> head</h3> <blockquote><p>只查看文件的头几行,默认是头10行.</p></blockquote> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 写成 head -3 /etc/passwd 效果是一样的</span>
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># head -n 3 test/a.txt </span>
+<span class="token number">111</span>
+<span class="token number">222</span>
+<span class="token number">333</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="tail"><a href="#tail" class="header-anchor">#</a> tail</h3> <blockquote><p>只查看文件的末尾几行,默认是后10行.</p></blockquote> <p><code>tail -f /mnt/test/a.txt</code> <strong>动态监测某个文件的变化!</strong> 只要往文件里<font color="brown">新增</font>内容,它就会变化!<br> <strong>注意！！！</strong><br> <font color="browm">vim的原理是将文件内容一下子从硬盘全部读到内存中,在内存中改完后,再一次性全部覆盖硬盘的原文件..</font><br>
+        So, vim编辑不是在原有的基础上新增!!类似的有 pycharm、word等原理一致..<br> <strong>所以切记在线上环境别用vim打开一个大文件!内存被挤爆,直接卡死...</strong><br>
+那如何新增？用<strong>echo</strong>命令..  <strong>一个 &gt; 的话是覆盖; 两个 &gt; 是往文件内容末尾追加内容!</strong></p> <p><img src="/assets/img/tail_f.393a3ec1.jpeg" alt=""></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tail -n 4 test/a.txt </span>
+<span class="token number">555</span>
+<span class="token number">666</span>
+aaa
+bbb
+<span class="token punctuation">[</span>root@localhost mnt<span class="token punctuation">]</span><span class="token comment"># tail -n 4 test/a.txt | head -2</span>
+<span class="token number">555</span>
+<span class="token number">666</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="其他"><a href="#其他" class="header-anchor">#</a> 其他</h3> <p><strong>less</strong>      可以上下键来回翻页查看<br> <strong>more</strong>      按空格键一页页翻, 有百分比显示..</p> <hr></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/8939f4/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">初识shell与基础常用命令</div></a> <a href="/pages/bd85fe/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">文件管理之四大模式</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/8939f4/" class="prev">初识shell与基础常用命令</a></span> <span class="next"><a href="/pages/bd85fe/">文件管理之四大模式</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/8sk2b3/"><div>
+            搜索相关
+            <!----></div></a> <span class="date">03-22</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/2kn2p2/"><div>
+            CURD
+            <!----></div></a> <span class="date">03-20</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/1kn1m1/"><div>
+            自动生成
+            <!----></div></a> <span class="date">03-15</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/OnePieceDC" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://www.cnblogs.com/DC0307/" title="博客园" target="_blank" class="iconfont icon-bokeyuan"></a><a href="https://music.163.com/#/song?id=1854188649" title="听音乐" target="_blank" class="iconfont icon-erji"></a><a href="https://www.jianshu.com/u/5310eb537315" title="简书" target="_blank" class="iconfont icon-jianshu"></a><a href="mailto:1415806497@qq.com" title="QQ" target="_blank" class="iconfont icon-youjian"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2024
+    <span>DC | One Piece</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><!----><div id="goTop" class="hide-cat" data-v-8ccb5928></div><div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div><div></div></div></div>
+    <script src="/assets/js/app.ac54adc6.js" defer></script><script src="/assets/js/4.7ddc74e3.js" defer></script><script src="/assets/js/1.a0c4ff1b.js" defer></script><script src="/assets/js/3.8b03321d.js" defer></script><script src="/assets/js/163.aa889940.js" defer></script><script src="/assets/js/104.cae2d944.js" defer></script><script src="/assets/js/184.46eabf07.js" defer></script>
+  </body>
+</html>
